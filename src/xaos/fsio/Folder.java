@@ -1,4 +1,4 @@
-package info.lrbh.fsio;
+package xaos.fsio;
 
 import java.io.File;
 import java.io.FileNotFoundException;

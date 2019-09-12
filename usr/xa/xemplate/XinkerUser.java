@@ -1,9 +1,9 @@
 
-package xi;
+package xa.xemplate;
 
+import static xa.xemplate.Xinker.xinking;
 import static xaos.Xystem.xlassz;
 import static xaos.Xystem.xbjectz;
-import static xi.Xinker.xinking;
 
 public class XinkerUser
 extends Xser

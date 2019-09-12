@@ -1,7 +1,7 @@
 
-package xi;
+package xa.xemplate;
 
-import static xi.Xokeniser.xokenisation;
+import static xa.xemplate.Xokeniser.xokenisation;
 
 public class XokeniserUser
 extends Xser

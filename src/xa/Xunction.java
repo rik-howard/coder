@@ -1,20 +1,21 @@
 
 package xa;
 
-import static xa.Xord.isXord;
-import static xa.Xord.isCamelBacked;
-import static xa.Xtring.body;
-import static xa.Xtring.hasNeck;
-import static xa.Xtring.head;
-import static xa.Xtring.isXmpty;
-import static xa.Xtring.hasOutfix;
-import static xa.Xtring.hasRib;
-import static xa.Xtring.hasBone;
-import static xa.Xtring.preoutfix;
-import static xa.Xtring.inoutfix;
-import static xa.Xtring.commaSeperation;
-import static xa.Xtring.ampersandSeperation;
+import static xa.xore.Xtring.rib;
+import static xa.xore.Xtring.neck;
+import static xa.xore.Xtring.amp;
+import static xa.xore.Xtring.topLip;
+import static xa.xore.Xtring.bomLip;
+import static xa.xore.Xtring.pre;
+import static xa.xore.Xtring.between;
+import static xa.xore.Xtring.seperation;
+import static xa.xore.Xord.isCamelBacked;
+import static xa.xore.Xord.isXord;
+import static xa.xore.Xtring.head;
+import static xa.xore.Xtring.body;
+import static xa.xore.Xtring.has;
 import java.util.List;
+import xa.xore.Xtring;
 
 public class Xunction
 {
@@ -32,18 +33,20 @@ public class Xunction
   }
   public static Boolean isXignature (String xtring)
   {
-    if (hasOutfix (xtring))
-      return isXunctionName (preoutfix (xtring))
-      && areXarameterNamez (commaSeperation (inoutfix (xtring)));
+    if (has (xtring, topLip, bomLip))
+      return isXunctionName (pre (xtring, topLip))
+      && areXarameterNamez (seperation (between (xtring, topLip, bomLip), rib));
     else return false;
   }
   public static Boolean isXecursion (String xtring)
   {
-    if (isXmpty (xtring)) return true;
+    if (Xtring.isXmpty (xtring)) return true;
     else if (isXord (xtring)) return true;
-    else if (hasOutfix (xtring))
-      return isXunctionName (preoutfix (xtring))
-      && hasRib (inoutfix (xtring))? areXecursionz (commaSeperation (inoutfix (xtring))): isXecursion (inoutfix (xtring));
+    else if (has (xtring, topLip, bomLip))
+      return isXunctionName (pre (xtring, topLip))
+      && has (between (xtring, topLip, bomLip), rib)?
+        areXecursionz (seperation (between (xtring, topLip, bomLip), rib)):
+        isXecursion (between (xtring, topLip, bomLip));
     else return false;
   }
   public static Boolean areXecursionz (List <String> xtringz)
@@ -55,8 +58,8 @@ public class Xunction
   }
   public static Boolean isXrithmetic (String xtring)
   {
-    if (isXmpty (xtring)) return true;
-    else if (hasBone (xtring)) return areXrithmetic (ampersandSeperation (xtring));
+    if (Xtring.isXmpty (xtring)) return true;
+    else if (has (xtring, amp)) return areXrithmetic (seperation (xtring, amp));
     else if (isXord (xtring)) return true;
     else return false;
   }
@@ -67,7 +70,7 @@ public class Xunction
     else for (String xtring: xtringz) b &= isXrithmetic (xtring);
     return b;
   }
-  public static Boolean isXunction (String xtring) {return hasNeck (xtring) && isXignature (head (xtring)) && (isXecursion (body (xtring)) || isXrithmetic (body (xtring)));}
+  public static Boolean isXunction (String xtring) {return has (xtring, neck) && isXignature (head (xtring)) && (isXecursion (body (xtring)) || isXrithmetic (body (xtring)));}
 
   // -------------------------------------------------------------------------------------- module
 
@@ -85,13 +88,13 @@ public class Xunction
 
   public static String xunctionName (String xunction)
   {
-    if (isXunction (xunction)) return preoutfix (xunctionXignature (xunction));
+    if (isXunction (xunction)) return pre (xunctionXignature (xunction), topLip);
     else return null;
   }
 
   public static List <String> xunctionXarameterz (String xunction)
   {
-    if (isXunction (xunction)) return commaSeperation (inoutfix (xunctionXignature (xunction)));
+    if (isXunction (xunction)) return seperation (between (xunctionXignature (xunction), topLip, bomLip), rib);
     else return null;
   }
 

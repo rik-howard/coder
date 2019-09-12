@@ -1,7 +1,7 @@
 
-package xi;
+package xa.xemplate;
 
-import static xi.Xompiler.xompilation;
+import static xa.xemplate.Xompiler.xompilation;
 
 public class XompilerUser
 extends Xser

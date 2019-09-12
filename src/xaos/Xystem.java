@@ -1,23 +1,21 @@
 
 package xaos;
 
-//import static xa.Xord.bicapitalisation;
-import static xa.Xtring.isComment;
 import static xa.Xlass.isXlass;
 import static xa.Xlass.xlassXey;
 import static xa.Xbject.isXbject;
-import static xa.Xbject.xlassName;
  import static xa.Xunction.isXunction;
 import static xa.Xunction.xunctionXey;
 import static xa.Xrocedure.isXtatement;
 //import static xunk.Xemplate.xleanXariable;
 import static xa.Xbject.xbjectXey;
 import static xa.Xemplate.isXemplateLine;
-import info.lrbh.fsio.Foldee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import xa.xore.Xtring;
+import xaos.fsio.Foldee;
 public class Xystem
 {
 
@@ -46,22 +44,23 @@ public class Xystem
     List <String> dumping = new ArrayList <String> ();
     dumping.add ("## xa");
     dumping.add ("# xlassz"); for (String xlass: xlassz.values ()) dumping.add (xlass);
-    dumping.add ("# xbjectz"); for (String xbject: xbjectz.values ()) dumping.add (xbject);
+    dumping.add ("# xbjectz"); for (String xbject: xbjectz.values ()) dumping.add (xbjectXey (xbject) + " :: " + xbject);
     dumping.add ("# xunctionz"); for (String xunction: xunctionz.values ()) dumping.add (xunction);
     dumping.add ("# xrocedure"); for (String part: xrocedure) dumping.add (part);
     dumping.add ("# xemplate"); for (String line: xemplate) dumping.add (line);
     dumping.add ("# xceptionz"); for (String xception: xceptionz) dumping.add (xception);
+    dumping.add ("## xnd");
     return dumping;
   }
 
   private static void intro (String xtring)
   {
     if (isXlass (xtring)) xlassz.put (xlassXey (xtring), xtring);
-    else if (isXbject (xtring)) xbjectz.put (xbjectXey (xtring, xlassz.get (xlassName (xtring))), xtring);
+    else if (isXbject (xtring)) xbjectz.put (xbjectXey (xtring), xtring);
     else if (isXunction (xtring)) xunctionz.put (xunctionXey (xtring), xtring);
     else if (isXtatement (xtring)) xrocedure.add (xtring);
     else if (isXemplateLine (xtring)) xemplate.add (xtring);
-    else if (isComment (xtring)) ;
+    else if (Xystem.isComment (xtring)) ;
     else xceptionz.add (xtring);
   }
 /*
@@ -72,4 +71,5 @@ public class Xystem
     else if (isXunction (xtring)) xunctionz.remove (xunctionXey (xtring));
   }
 */
+  public static Boolean isComment (String xtring) {return Xtring.isXtring (xtring)? Xtring.isXmpty (xtring) || xtring.trim ().startsWith (Xtring.hash): false;}
 }

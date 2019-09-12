@@ -1,16 +1,11 @@
 
-package xi;
+package xa.xemplate;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Xleaner
 {
-
-  //public static Boolean hasXlean (String string)
-  //{
-  //  return string.matches ("[^\\|]+");
-  //}
 
   public static List <String> xleaning (List <String> stringz)
   {

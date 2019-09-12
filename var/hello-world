@@ -7,7 +7,8 @@ We: name
 i: Rik
 thou: Tom
 thou: Harry
-we: theNamed # toggle comment on this line
+we: theNamed
+# toggle a comment on the line above
 
 #
 .         | Hello, World!

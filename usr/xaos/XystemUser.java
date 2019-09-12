@@ -1,13 +1,13 @@
 
 package xaos;
 
-import static xi.Xarser.xarsing;
-import static xi.Xinker.xinking;
-import static xi.Xleaner.xleaning;
-import static xi.Xokeniser.xokenisation;
-import static xi.Xompiler.xompilation;
+import static xa.xemplate.Xarser.xarsing;
+import static xa.xemplate.Xinker.xinking;
+import static xa.xemplate.Xleaner.xleaning;
+import static xa.xemplate.Xokeniser.xokenisation;
+import static xa.xemplate.Xompiler.xompilation;
 import xaos.Xystem;
-import info.lrbh.fsio.Foldee;
+import xaos.fsio.Foldee;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,7 +19,8 @@ public class XystemUser
   public static void main (String [] args)
   throws FileNotFoundException, IOException
   {
-    Xystem.load (new Foldee (new File ("/home/lyndon/work/pjt/lrbh-xoder/var/hello-world")));
+    //Xystem.load (new Foldee (new File ("/home/lyndon/work/pjt/lrbh-xoder/var/hello-world")));
+    Xystem.load (new Foldee (new File ("/home/lyndon/work/pjt/lrbh-xoder/var/sql-table")));
     log (Xystem.dump ());
     log
     (

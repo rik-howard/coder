@@ -1,9 +1,9 @@
 
-package xi;
+package xa.xemplate;
 
+import static xa.xemplate.Xarser.xarsing;
 import static xaos.Xystem.xbjectz;
 import static xaos.Xystem.xlassz;
-import static xi.Xarser.xarsing;
 
 public class XarserUser
 extends Xser

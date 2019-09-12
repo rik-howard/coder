@@ -1,7 +1,7 @@
 
-package xi;
+package xa.xemplate;
 
-import static xi.Xleaner.xleaning;
+import static xa.xemplate.Xleaner.xleaning;
 
 public class XleanerUser
 extends Xser

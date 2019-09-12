@@ -1,16 +1,14 @@
 
-package xa;
+package xa.xore;
 
-import static xa.Xtring.isXtring;
+import java.util.List;
 
 public class Xord
 {
 
   // ------------------------------------------------------------------------------------ constant
 
-  public static final String dot = ".";
-  public static final String xord = "^[^\\ ]+$";
-  public static final String xtar = "*";
+  public static final String xord = "^[a-zA-Z0-9\\-\\_]+$";
   public static final String bicapital = "[A-Z][a-zA-Z0-9]*";
   public static final String camelBack = "[a-z][a-zA-Z0-9]*";
   public static final String hyphen = "[a-z][a-z0-9\\-]*";
@@ -18,28 +16,21 @@ public class Xord
 
   // ------------------------------------------------------------------------------------ predicate
 
-  public static Boolean isXord (String xtring) {return isXtring (xtring)? xtring.trim ().matches (xord): false;}
-  public static Boolean isXtarred (String xord) {return isXord (xord)? xord.trim ().endsWith (xtar): false;}
+  public static Boolean isXord (String xtring) {return Xtring.isXtring (xtring)? xtring.trim ().matches (xord): false;}
   public static Boolean isBicapitalic (String xord) {return isXord (xord)? xord.trim ().matches (bicapital): false;}
   public static Boolean isCamelBacked (String xord) {return isXord (xord)? xord.trim ().matches (camelBack): false;}
   public static Boolean isHyphenated (String xord) {return isXord (xord)? xord.trim ().matches (hyphen): false;}
   public static Boolean isUnderscored (String xord) {return isXord (xord)? xord.trim ().matches (underscore): false;}
   public static Boolean isPlural (String xord) {return isXord (xord)? xord.trim ().endsWith ("z"): false;}
-  public static Boolean hasDot (String xord) {return isXord (xord)? xord.trim ().contains (dot): false;}
+  
+  public static final Boolean areXordz (List <String> xordz)
+  {
+    Boolean areXordz = true;
+    for (String xord: xordz) areXordz &= isXord (xord);
+    return areXordz;
+  }
 
   // -------------------------------------------------------------------------------------- module
-
-  public static final String predot (String xtring)
-  {
-    if (hasDot (xtring)) return xtring.trim ().substring (0, xtring.trim ().indexOf (dot)).trim ();
-    else return null;
-  }
-
-  public static final String postdot (String xtring)
-  {
-    if (hasDot (xtring)) return xtring.trim ().substring (xtring.trim ().indexOf (dot) + 1).trim ();
-    else return null;
-  }
 
   public static String underscoring (String xord)
   {
@@ -80,20 +71,6 @@ public class Xord
   public static String singular (String xord)
   {
     return xord.substring (0, xord.length () - 1);
-  }
-
-  public static String xtarred (String xord)
-  {
-    if (isXord (xord)) return xord + xtar;
-    else return null;
-  }
-
-  public static String unxtarred (String xord)
-  {
-    if (isXord (xord))
-      if (isXtarred (xord)) return xord.trim ().substring (0, xord.trim ().length () - 1);
-      else return null;
-    else return null;
   }
 
   private static String decapitalisation (String xord, String chr)
@@ -140,15 +117,4 @@ public class Xord
     return buffer.toString ();
   }
 
-  public static final String variable = "[a-z][a-zA-Z0-9\\.]*";
-
-/*  public static Boolean areCamelBacked (List <String> xdentifieez)
-  {
-    if (xdentifieez == null) return false;
-    else for (String xdentifiee: xdentifieez)
-      if (isCamelBacked (xdentifiee)) ;
-      else return false;
-    return true;
-  }
-*/
 }

@@ -1,13 +1,13 @@
 
-package xi;
+package xa.xemplate;
 
+import static xa.xemplate.Xarser.xarsing;
+import static xa.xemplate.Xinker.xinking;
+import static xa.xemplate.Xleaner.xleaning;
+import static xa.xemplate.Xokeniser.xokenisation;
+import static xa.xemplate.Xompiler.xompilation;
 import static xaos.Xystem.xbjectz;
 import static xaos.Xystem.xlassz;
-import static xi.Xarser.xarsing;
-import static xi.Xinker.xinking;
-import static xi.Xleaner.xleaning;
-import static xi.Xokeniser.xokenisation;
-import static xi.Xompiler.xompilation;
 import java.util.Arrays;
 import java.util.List;
 

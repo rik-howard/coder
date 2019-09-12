@@ -1,5 +1,5 @@
 
-package info.lrbh.fsio;
+package xaos.fsio;
 
 import java.io.BufferedReader;
 import java.io.File;
