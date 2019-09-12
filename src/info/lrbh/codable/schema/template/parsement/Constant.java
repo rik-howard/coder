@@ -1,3 +1,4 @@
+
 package info.lrbh.codable.schema.template.parsement;
 
 import info.lrbh.codable.schema.template.Parsement;
@@ -33,27 +34,29 @@ implements Cloneable
     else return false;
   }
 
+  public String superString ()
+  {
+    return super.toString ();
+  }
+
   @Override public String toString ()
   {
-    return new StringBuffer ("<")
+    String o = "<";
+    String c = ">";
+    String s = " | ";
+    return new StringBuffer (o)
       .append (this.value ().toString ())
-      .append (">").toString ()
+      .append (s).append (super.toString ())
+      .append (c).toString ()
     ;
   }
 
   @Override public Object clone ()
   throws CloneNotSupportedException
   {
-    Object clone = null;
-      clone = super.clone ();
-      ((Constant) clone).setValue (this.value ());
-
+    Constant clone = (Constant) super.clone ();
+    clone.setValue (this.value ());
     return clone;
-  }
-
-  public String toTree (String padding)
-  {
-    return padding + "+ " + this.value () + "\n";
   }
 
 }

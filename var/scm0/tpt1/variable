@@ -1,0 +1,18 @@
+
+> relations
+
+Foo: bar
+
+
+
+> records
+
+foo: baz
+
+
+
+> template
+
+The value of foo.bar is [foo.bar].
+The value of foo.bat is [foo.bat].
+The value of fox.bat is [fox.bat].

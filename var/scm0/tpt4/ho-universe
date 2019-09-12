@@ -1,0 +1,40 @@
+
+
+
+> symbols
+
+opener: [
+closer: ]
+margin: |
+eof: <eof>
+
+
+
+> relations
+
+Thing: thing
+
+
+
+> records
+
+thing: thong
+
+
+
+> functions
+
+thingThing (thing): thing
+thing (thing): "thing:" & thingThing (thing.thing)
+
+
+
+> procedure
+
+intro thing (thing)
+
+
+
+> template
+
+[thing.thing]

@@ -18,11 +18,24 @@ implements Cloneable, Comparable <Foldee>
 
   private String value;
 
-  public void setValue (String value) {this.value = value == null? "value": value;}
+  public void setValue (String value) {this.value = value == null? new String (): value;}
   public void setLinez (List <String> linez) {this.setValue (this.joined (linez, end));}
 
   public String getValue () {return this.value;}
-  public List <String> getLinez () {return Arrays.asList (this.getValue ().split (end));}
+  public List <Line> lines ()
+  {
+    List <Line> lines = new ArrayList <Line> ();
+    if (this.getValue ().equals (new String ())) ;
+    else for (String string: Arrays.asList (this.getValue ().split (end)))
+    {
+      Line line = new Line ();
+      line.setString (string);
+      lines.add (line);
+    }
+    return lines;
+  }
+
+  public Foldee () {super.setName (null); this.setValue (null);}
 
   public Foldee (String name, List <String> linez)
   {
@@ -39,7 +52,6 @@ implements Cloneable, Comparable <Foldee>
   public Foldee (File file)
   throws FileNotFoundException, IOException
   {
-    //assert file.exists (): "the file exists not: " + file;
     this (file.getName (), blank);
     StringBuffer buffer = new StringBuffer ();
     BufferedReader reader = new BufferedReader (new FileReader (file));
@@ -52,7 +64,10 @@ implements Cloneable, Comparable <Foldee>
   @Override
   public String toString ()
   {
-    return this.getName () + File.separator + this.getValue ();
+    String o = "<";
+    String c = ">";
+    String s = " | ";
+    return o + this.name () + s + this.lines () + c;
   }
 
   @Override
@@ -62,7 +77,7 @@ implements Cloneable, Comparable <Foldee>
     else if (object instanceof Foldee)
     {
       Foldee foldee = (Foldee) object;
-      return this.getName ().equals (foldee.getName ()) && this.getValue ().equals (foldee.getValue ());
+      return this.name ().equals (foldee.name ()) && this.getValue ().equals (foldee.getValue ());
     }
     else return false;
   }
@@ -71,7 +86,7 @@ implements Cloneable, Comparable <Foldee>
   public int hashCode ()
   {
     int hash = 5;
-    hash = 71 * hash + (this.getName () != null? this.getName ().hashCode (): 0);
+    hash = 71 * hash + (this.name () != null? this.name ().hashCode (): 0);
     hash = 71 * hash + (this.getValue () != null? this.getValue ().hashCode (): 0);
     return hash;
   }
@@ -83,7 +98,7 @@ implements Cloneable, Comparable <Foldee>
     try
     {
       clone = super.clone ();
-      ((Foldee) clone).setName (this.getName ());
+      ((Foldee) clone).setName (this.name ());
       ((Foldee) clone).setValue (this.getValue ());
     }
     catch (CloneNotSupportedException e) {e.printStackTrace ();}
@@ -92,19 +107,18 @@ implements Cloneable, Comparable <Foldee>
 
   public int compareTo (Foldee foldee)
   {
-    return this.getName ().compareTo (foldee.getName ());
+    return this.name ().compareTo (foldee.name ());
   }
 
   public void store ()
   throws IOException
   {
-    this.store (new File (this.getName ()));
+    this.store (new File (this.name ()));
   }
 
-  public void store (File file)
+  void store (File file)
   throws IOException
   {
-    assert file.getParent () != null: "the parent of the file, " + file + ", is null";
     if (file.exists ()) assert true;
     else if (file.getParentFile ().exists ()) file.createNewFile ();
     else
@@ -119,6 +133,7 @@ implements Cloneable, Comparable <Foldee>
       writer.flush ();
       writer.close ();
     }
+    else System.out.println ("the file exists: " + file.getName ());
   }
 
   private String joined (List <String> stringz, String seperator)
@@ -133,7 +148,7 @@ implements Cloneable, Comparable <Foldee>
   public FSO leaf (String path)
   {
     Foldee leaf = (Foldee) this.clone ();
-    leaf.setName ((path == null? blank: path.equals (blank)? blank: path + File.separator) + leaf.getName ());
+    leaf.setName ((path == null? blank: path.isEmpty ()? blank: path + File.separator) + leaf.name ());
     return leaf;
   }
 

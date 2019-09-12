@@ -1,0 +1,64 @@
+
+.                              |
+.                              | package [pkg.name];
+.                              |
+.                              | import static testing.Module.show;
+.                              | import static testing.Module.panic;
+.                              | import static testing.Module.denial;
+.                              |
+.                              | public class [src.name]Tester
+.                              | {
+.                              |
+.                              |   private static final [src.name] newby = new [src.name] ();
+.                              |
+.                              |   public static void main (String OPNCLS strings)
+.                              |   {
+.[srf:src.srfz]                |     try {test[srf.classy] ();} catch (AssertionError e) {panic (e);}
+.[]                            |     try {testHashCode ();} catch (AssertionError e) {panic (e);}
+.                              |     try {testEquals ();} catch (AssertionError e) {panic (e);}
+.                              |     try {testToString ();} catch (AssertionError e) {panic (e);}
+.                              |     show (".");
+.                              |   }
+.                              |
+.[srf:src.srfz][:exists:srf.sr]|   private static void test[srf.classy] ()
+.                              |   {
+.                              |     [srf.type] expected = null;
+.                              |     [srf.type] actual = newby.[srf.name] ();
+.                              |     assert expected == actual: "not " + expected + " == " + actual;
+.                              |     show (".");
+.                              |   }
+.                              |
+.[:]                           |   private static void test[srf.classy] ()
+.                              |   {
+.                              |     [srf.type] expected = [srf.default];
+.                              |     [srf.type] actual = newby.[srf.name] ();
+.                              |     assert expected.equals (actual): denial (expected, actual);
+.                              |     show (".");
+.                              |   }
+.                              |
+.[][]                          |   private static void testHashCode ()
+.                              |   {
+.                              |     Integer expected = new [src.name] ().hashCode ();
+.                              |     Integer actual = newby.hashCode ();
+.                              |     assert expected.equals (actual): denial (expected, actual);
+.                              |     show (".");
+.                              |   }
+.                              |
+.                              |   private static void testEquals ()
+.                              |   {
+.                              |     assert ! newby.equals (null): newby + " equals null";
+.                              |     assert ! newby.equals (0): newby + " equals 0";
+.                              |     assert newby.equals (new [src.name] ()): "not " + newby + " equals " + new [src.name] ();
+.                              |     show (".");
+.                              |   }
+.                              |
+.                              |   private static void testToString ()
+.                              |   {
+.                              |     String expected = "<[srf:src.srfz]" + [srf.default] + "[:isLast:srf][:]__|__[][]>";
+.                              |     String actual = newby.toString ();
+.                              |     assert expected.equals (actual): denial (expected, actual);
+.                              |     show (".");
+.                              |   }
+.                              |
+.                              | }
+.                              |

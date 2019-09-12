@@ -1,4 +1,0 @@
-#!/bin/bash
-home=$(dirname $(dirname $0))
-java -ea -cp $home/tmq info.lrbh.codive.Coder -xode $@
-echo

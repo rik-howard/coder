@@ -1,0 +1,36 @@
+#!/bin/bash
+
+function echoFindee ()
+{ #
+  echo $line | sed "s/__/ /g" | grep --colour=always "$1"
+}
+
+function echoLine ()
+{
+  echo $line | sed "s/OPN/[/g" | sed "s/CLS/]/g" | sed "s/__/ /g"
+}
+
+
+sed "s/ /__/g" |\
+(
+  regex=$1
+  rgx=$2
+  going=false
+  while read line
+  do
+    if $going
+    then
+      if test -n "$(echo $line | grep ^..........folde[er])"
+      then exit
+      elif test -n "$(echo $line | grep "$rgx")"
+      then echoFindee $rgx
+      else echoLine
+      fi
+    elif test -n "$(echo $line | grep "$regex")"
+    then
+      going=true
+      echoFindee $regex
+    else
+    fi
+  done
+)

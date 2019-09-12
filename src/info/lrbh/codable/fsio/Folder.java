@@ -1,3 +1,4 @@
+
 package info.lrbh.codable.fsio;
 
 import java.io.File;
@@ -18,8 +19,10 @@ implements Cloneable, Comparable <Folder>
   public void setFolders (List <Folder> folders) {this.folders = folders == null? new ArrayList <Folder> (): folders;}
   public void setFoldees (List <Foldee> foldees) {this.foldees = foldees == null? new ArrayList <Foldee> (): foldees;}
 
-  public List <Folder> getFolders () {return this.folders;}
-  public List <Foldee> getFoldees () {return this.foldees;}
+  public List <Folder> folders () {return this.folders;}
+  public List <Foldee> foldees () {return this.foldees;}
+
+  public Folder () {super.setName (null); this.setFolders (null); this.setFoldees (null);}
 
   public Folder (String name, List <Folder> folders, List <Foldee> foldees)
   {
@@ -42,9 +45,13 @@ implements Cloneable, Comparable <Folder>
 
   @Override public String toString ()
   {
-    return this.getName ()
-    + File.separator + this.getFolders ()
-    + File.separator + this.getFoldees ();
+    String o = "<";
+    String c = ">";
+    String s = " | ";
+    return o + this.name ()
+    + s + this.folders ()
+    + s + this.foldees ()
+    + c;
   }
 
   @Override public boolean equals (Object object)
@@ -52,23 +59,15 @@ implements Cloneable, Comparable <Folder>
     if (object == null) return false;
     else if (object instanceof Folder)
     {
-      //Collections.sort (this.folders);
-      //Collections.sort (this.foldees);
       Folder folder = (Folder) object;
-      //Collections.sort (folder.folders);
-      //Collections.sort (folder.foldees);
-      /*return this.getName ().equals (folder.getName ()) &&
-        this.getFolders ().equals (folder.getFolders ()) &&
-        this.getFoldees ().equals (folder.getFoldees ());*/
-      //
-      Boolean equals = this.getName ().equals (folder.getName ()) &&
-        this.getFolders ().size () == folder.getFolders ().size () &&
-        this.getFoldees ().size () == folder.getFoldees ().size ();
+      Boolean equals = this.name ().equals (folder.name ()) &&
+        this.folders ().size () == folder.folders ().size () &&
+        this.foldees ().size () == folder.foldees ().size ();
       if (equals) {
-        for (Integer i = 0; i < this.getFolders ().size (); i++)
-          equals &= this.getFolders ().get (i).equals (folder.getFolders ().get (i));
-        for (Integer i = 0; i < this.getFoldees ().size (); i++)
-          equals &= this.getFoldees ().get (i).equals (folder.getFoldees ().get (i));
+        for (Integer i = 0; i < this.folders ().size (); i++)
+          equals &= this.folders ().get (i).equals (folder.folders ().get (i));
+        for (Integer i = 0; i < this.foldees ().size (); i++)
+          equals &= this.foldees ().get (i).equals (folder.foldees ().get (i));
         return equals;
       }
       else return false;
@@ -79,9 +78,9 @@ implements Cloneable, Comparable <Folder>
   @Override public int hashCode ()
   {
     int hash = 7;
-    hash = 41 * hash + (this.getName () != null? this.getName ().hashCode (): 0);
-    hash = 41 * hash + (this.getFolders () != null? this.getFolders ().hashCode (): 0);
-    hash = 41 * hash + (this.getFoldees () != null? this.getFoldees ().hashCode (): 0);
+    hash = 41 * hash + (this.name () != null? this.name ().hashCode (): 0);
+    hash = 41 * hash + (this.folders () != null? this.folders ().hashCode (): 0);
+    hash = 41 * hash + (this.foldees () != null? this.foldees ().hashCode (): 0);
     return hash;
   }
 
@@ -91,9 +90,9 @@ implements Cloneable, Comparable <Folder>
     try
     {
       clone = super.clone ();
-      ((Folder) clone).setName (this.getName ());
-      ((Folder) clone).setFolders (this.getFolders ());
-      ((Folder) clone).setFoldees (this.getFoldees ());
+      ((Folder) clone).setName (this.name ());
+      ((Folder) clone).setFolders (this.folders ());
+      ((Folder) clone).setFoldees (this.foldees ());
     }
     catch (CloneNotSupportedException e) {e.printStackTrace ();}
     return clone;
@@ -101,10 +100,10 @@ implements Cloneable, Comparable <Folder>
 
   public int compareTo (Folder folder)
   {
-    return this.getName ().compareTo (((Folder) folder).name);
+    return this.name ().compareTo (((Folder) folder).name);
   }
 
-  //
+
 
   public void store ()
   throws IOException
@@ -118,33 +117,33 @@ implements Cloneable, Comparable <Folder>
     File file = this.file (parent);
     if (file.exists ()) assert true;
     else  file.mkdirs ();
-    for (Folder folder : this.getFolders ()) folder.store (file);
-    for (Foldee foldee : this.getFoldees ()) foldee.store (new File (file.getPath () + File.separator + foldee.getName ()));
+    for (Folder folder : this.folders ()) folder.store (file);
+    for (Foldee foldee : this.foldees ()) foldee.store (new File (file.getPath () + File.separator + foldee.name ()));
   }
 
   private File file (File parent)
   {
-    if (parent == null) return new File (this.getName ());
-    else return new File (parent.getPath () + File.separator + this.getName ());
+    if (parent == null) return new File (this.name ());
+    else return new File (parent.getPath () + File.separator + this.name ());
   }
 
   private void sort ()
   {
-    if (this.getFolders () != null) for (Folder folder: this.getFolders ()) folder.sort ();
-    if (this.getFolders () != null) Collections.sort (this.getFolders ());
-    Collections.sort (this.getFoldees ());
+    if (this.folders () != null) for (Folder folder: this.folders ()) folder.sort ();
+    if (this.folders () != null) Collections.sort (this.folders ());
+    Collections.sort (this.foldees ());
   }
 
   public List <FSO> leaves (String path)
   {
     List <FSO> leaves = new ArrayList <FSO> ();
     Folder clone = (Folder) this.clone ();
-    clone.setName ((path == null? blank: path.equals (blank)? blank: path + File.separator) + clone.getName ());
-    if (clone.getFolders ().size () == 0 && clone.getFoldees ().size () == 0) leaves.add (clone);
+    clone.setName ((path == null? blank: path.isEmpty ()? blank: path + File.separator) + clone.name ());
+    if (clone.folders ().size () == 0 && clone.foldees ().size () == 0) leaves.add (clone);
     else
     {
-      for (Folder folder: clone.getFolders ()) leaves.addAll (folder.leaves (clone.getName ()));
-      for (Foldee foldee: clone.getFoldees ()) leaves.add (foldee.leaf (clone.getName ()));
+      for (Folder folder: clone.folders ()) leaves.addAll (folder.leaves (clone.name ()));
+      for (Foldee foldee: clone.foldees ()) leaves.add (foldee.leaf (clone.name ()));
     }
     return leaves;
   }

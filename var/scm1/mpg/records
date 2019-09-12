@@ -1,0 +1,43 @@
+
+> records
+
+pkg: eg eg
+
+ifc: eg Face null null ivr null
+ivr: eg Face nose new__String__("conk")
+
+cls: eg Bean imp null iml fld null null bean
+imp: eg Bean java.sql.Date
+iml: eg Bean Face
+fld: eg Bean id Integer Id new__Integer__(0)
+fld: eg Bean name String Name new__String__()
+fld: eg Bean date Date Date new__Date__(0)
+
+cls: eg Can imp null null fld null null can
+imp: eg Can java.util.List
+imp: eg Can java.util.ArrayList
+fld: eg Can id Integer Id new__Integer__(0)
+fld: eg Can beanz List__<Bean> Beanz new__ArrayList__<Bean>__()
+
+src: eg Node null null null null srf node
+srf: eg Node id Integer Id new__Integer__(0) null
+srf: eg Node node Node Node null sr
+
+src: eg Binode null null null null srf binode
+imp: eg Can java.util.List
+srf: eg Binode id Integer Id new__Integer__(0) null
+srf: eg Binode left Binode Left null sr
+srf: eg Binode right Binode Right null sr
+
+mod: eg Processor null null
+fnv: eg Processor processBean ProcessBean
+arg: eg Processor processBean bean Bean new__Bean__()
+fnv: eg Processor processCan ProcessCan
+arg: eg Processor processCan can Can new__Can__()
+fnv: eg Processor processNode ProcessNode
+arg: eg Processor processNode node Node new__Node__()
+fnv: eg Processor processBinode ProcessBinode
+arg: eg Processor processBinode binode Binode new__Binode__()
+
+¢ Note that we cannot implement method over-loading because of the way the Mod-relation is defined.  For
+¢ over-loading, please see lrbh.info/codee

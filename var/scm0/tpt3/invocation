@@ -1,0 +1,19 @@
+
+
+> relations
+Foo: bar baz
+A: snafu
+X: snafu
+
+> records
+a: snafu
+
+> functions
+foo (x, y): "foo:" & x.snafu & y
+
+> procedure
+intro foo (a, "tarfu")
+¢intro foo ("a", "b" & "c")
+
+> template
+[foo.baz]

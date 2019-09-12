@@ -1,0 +1,16 @@
+#!/bin/bash
+
+home=$(dirname $0)
+javacSrc="javac -d $home/tmp -cp $home/tmp -sourcepath $home/src"
+javacTst="javac -d $home/tmp -cp $home/tmp -sourcepath $home/tst"
+
+rm -r $home/tmp 2> /dev/null
+mkdir $home/tmp
+
+srcFiles="[pkg:pkgz][ifc:pkg.ifcz]$home/src/[pkg.folder]/[ifc.name].java [][cls:pkg.clsz]$home/src/[pkg.folder]/[cls.name].java [][src:pkg.srcz]$home/src/[pkg.folder]/[src.name].java [][mod:pkg.modz]$home/src/[pkg.folder]/[mod.name].java [][]"
+tstFiles="$home/tst/testing/Module.java [pkg:pkgz][cls:pkg.clsz]$home/tst/[pkg.folder]/[cls.name]Tester.java [][src:pkg.srcz]$home/tst/[pkg.folder]/[src.name]Tester.java [][mod:pkg.modz]$home/tst/[pkg.folder]/[mod.name]Tester.java [][]$home/tst/testing/Tester.java"
+
+$javacSrc $srcFiles
+$javacTst $tstFiles
+
+java -ea -cp $home/tmp testing.Tester

@@ -1,0 +1,4 @@
+#!/bin/bash
+home=$(dirname $(dirname $0))
+java -ea -cp $home/tmp info.lrbh.codive.Main -code $@
+echo

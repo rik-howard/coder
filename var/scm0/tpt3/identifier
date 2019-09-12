@@ -1,0 +1,22 @@
+
+> symbols
+
+
+> relations
+Pjt: name version
+Pgm: name
+
+> records
+pjt: lrbh-doer 0.0
+
+> functions
+pgmName (name, version): joining (name, version, "-")
+pgm (pjt): "pgm:" & pgmName (pjt.name, pjt.version)
+
+> procedure
+intro pgm (pjt)
+
+> template
+pjt: [pjt.name] [pjt.version]; pgm: [pgm.name]
+
+

@@ -1,5 +1,5 @@
-package info.lrbh.codable.schema.template;
 
+package info.lrbh.codable.schema.template;
 
 public class Cleanment
 implements Cloneable
@@ -44,22 +44,24 @@ implements Cloneable
   @Override public String toString ()
   {
     return new StringBuffer ("<")
-      .append (this.string ().toString ()).append (", ")
-      .append (this.opener ().toString ()).append (", ")
+      .append (this.string ().toString ()).append (" | ")
+      .append (this.opener ().toString ()).append (" | ")
       .append (this.closer ().toString ())
       .append (">").toString ()
     ;
   }
 
   @Override public Object clone ()
-  throws CloneNotSupportedException
   {
     Object clone = null;
+    try
+    {
       clone = super.clone ();
       ((Cleanment) clone).setString (this.string ());
       ((Cleanment) clone).setOpener (this.opener ());
       ((Cleanment) clone).setCloser (this.closer ());
-
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
     return clone;
   }
 

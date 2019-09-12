@@ -1,5 +1,5 @@
-package info.lrbh.codable.schema.template;
 
+package info.lrbh.codable.schema.template;
 
 public class Link
 implements Cloneable
@@ -40,12 +40,14 @@ implements Cloneable
   }
 
   @Override public Object clone ()
-  throws CloneNotSupportedException
   {
     Object clone = null;
+    try
+    {
       clone = super.clone ();
       ((Link) clone).setValue (this.value ());
-
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
     return clone;
   }
 

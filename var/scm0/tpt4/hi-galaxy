@@ -1,0 +1,42 @@
+
+
+
+> symbols
+
+eof: <eof>
+opener: [
+closer: ]
+margin: |
+
+
+
+> relations
+
+Source: name
+Target: name
+
+
+
+> records
+
+source: source-name
+
+
+
+> functions
+
+targetName (name): name
+target (source): "target:" & targetName (source.name)
+
+
+
+> procedure
+
+intro target (source)
+
+
+
+> template
+
+[source.name]
+[target.name]

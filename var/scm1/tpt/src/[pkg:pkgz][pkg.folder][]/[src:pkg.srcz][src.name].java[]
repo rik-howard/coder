@@ -1,0 +1,54 @@
+
+.                                            |
+.                                            | package [pkg.name];
+.[:exists:src.imp]                           |
+.[imp:src.impz]                              | import [imp.name];
+.[][]                                        |
+.                                            | public class [src.name]
+.                                            | {
+.                                            |
+.[srf:src.srfz]                              |   private [srf.type] [srf.name];
+.[]                                          |
+.[srf:src.srfz][:exists:srf.sr]              |   public void set[srf.classy] ([srf.type] [srf.name]) {this.[srf.name] = [srf.name];}
+.[:]                                         |   public void set[srf.classy] ([srf.type] [srf.name]) {this.[srf.name] = [srf.name] == null? [srf.default]: [srf.name];}
+.[][]                                        |
+.[srf:src.srfz][:exists:srf.sr]              |   public [srf.type] [srf.name] () {return this.[srf.name];}
+.[:]                                         |   public [srf.type] [srf.name] () {if (this.[srf.name] == null) this.set[srf.classy] (null); return this.[srf.name];}
+.[][]                                        |
+.                                            |   @Override public int hashCode ()
+.                                            |   {
+.                                            |     Integer code = 0;
+.[srf:src.srfz][:exists:srf.sr]              |     code += this.[srf.name] () == null? 0: this.[srf.name] ().hashCode ();
+.[:]                                         |     code += this.[srf.name] ().hashCode ();
+.[][]                                        |     return code;
+.                                            |   }
+.                                            |
+.                                            |   @Override public boolean equals (Object object)
+.                                            |   {
+.                                            |     if (object == null) return false;
+.                                            |     else if (object instanceof [src.name])
+.                                            |     {
+.                                            |       Boolean equals = true;
+.[srf:src.srfz][:isFirst:srf]                |       [src.name] that = ([src.name]) object;
+.[][:exists:srf.sr]                          |       equals &= this.[srf.name] () == null? that.[srf.name] () == null: this.[srf.name] ().equals (that.[srf.name] ());
+.[:]                                         |       equals &= this.[srf.name] ().equals (that.[srf.name] ());
+.[][]                                        |       return equals;
+.                                            |     }
+.                                            |     else return false;
+.                                            |   }
+.                                            |
+.                                            |   @Override public String toString ()
+.                                            |   {
+.                                            |     String o = "<";
+.                                            |     String c = ">";
+.                                            |     String s = " | ";
+.                                            |     StringBuffer buffer = new StringBuffer (o);
+.[srf:src.srfz][:isFirst:srf][:]             |     buffer.append (s);
+.[][:exists:srf.sr]                          |     if (this.[srf.name] () == null) buffer.append ("null");
+.                                            |     else buffer.append (this.[srf.name] ().toString ());
+.[:]                                         |     buffer.append (this.[srf.name] ().toString ());
+.[][]                                        |     return buffer.append (c).toString ();
+.                                            |   }
+.                                            |
+.                                            | }
+.                                            |

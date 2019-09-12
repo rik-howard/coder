@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# this leaves files beginning with a dot in the target
+# eg, Eclipse's .classpath and .project
+function removeTargetIfExists ()
+{
+  if test -d "$tgt"
+  then
+    echo
+    echo "removing $tgt"
+    echo
+    rm -r $(ls $tgt | sed "s|\(.*\)|$tgt/\1|")
+  fi
+}
+
+home=$(dirname $0)
+tgt=$1
+
+if test -n "$tgt"
+then
+  removeTargetIfExists
+  code -from $home/tpt -with $home/mpg -to "$tgt"
+  recurser replace e "$tgt" "OPN" "["
+  recurser replace e "$tgt" "CLS" "]"
+  recurser replace e "$tgt" "__" " "
+  chmod 755 "$tgt/build"
+  "$tgt/build"
+else
+  code -from $home/tpt -with $home/mpg
+  echo 'set-up coded-scm'
+fi

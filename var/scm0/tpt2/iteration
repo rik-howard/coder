@@ -1,0 +1,28 @@
+
+> relations
+Foo: bar*
+Sna: fu*
+Tar: sna.fu* fu*
+
+> records
+sna: 0
+tar: 0 0
+sna: 1
+tar: 1 0
+tar: 1 1
+
+> functions
+
+> procedure
+intro "foo: 1"
+for s in snaz
+  intro "foo: 2"
+  for t in s.tarz
+    intro "foo: 3"
+  end
+  intro "foo: 4"
+end
+intro "foo: 5"
+
+> template
+{[f:fooz][f.bar][:isLast:f][:] [][]}

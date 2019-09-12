@@ -1,5 +1,6 @@
 #!/bin/bash
 home=$(dirname $0)
-rm -r $home/tmq 2>&0
-mkdir $home/tmq
-javac -sourcepath $home/src -d $home/tmq $home/src/info/lrbh/codive/Coder.java
+rm -r $home/tmp 2> /dev/null
+mkdir $home/tmp
+javac -sourcepath $home/src -d $home/tmp $home/src/info/lrbh/codive/Main.java
+javac -sourcepath $home/tst -cp $home/tmp -d $home/tmp $home/tst/testing/Tester.java

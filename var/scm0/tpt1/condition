@@ -1,0 +1,25 @@
+
+> relations
+A: x
+B: x*
+
+> records
+a: t
+b: o
+b: i
+
+> template
+...
+1 [:exists:x]t []x
+2 [:exists:a]t []x
+3 [:exists:a][a.x] []x
+4 [:exists:a]t [b:bz][b.x] []t []x
+5 [:exists:a]o [:exists:x]i []o []x
+6 [:exists:a]o [:exists:a]i []o []x
+
+7 [:exists:b]t [:]f []x
+8 [:exists:a]t [:]f []x
+
+9 [:exists:b]t [:][:exists:b]a [][]x
+0 [:exists:b]t [:][:exists:a]a [][]x
+1 [:exists:a]t [:][:exists:a]a [][]x

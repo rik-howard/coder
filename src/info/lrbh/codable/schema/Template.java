@@ -1,5 +1,5 @@
-package info.lrbh.codable.schema;
 
+package info.lrbh.codable.schema;
 
 public class Template
 implements Cloneable
@@ -43,9 +43,12 @@ implements Cloneable
   throws CloneNotSupportedException
   {
     Object clone = null;
+    try
+    {
       clone = super.clone ();
       ((Template) clone).setString (this.string ());
-
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
     return clone;
   }
 

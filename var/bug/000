@@ -1,0 +1,31 @@
+
+> symbols
+opener: [
+closer: ]
+margin: |
+comment: ¢
+eof: €
+
+> relations
+Cls: name*
+Cim: cls.name* name*
+Fld: cls.name* name* type classy default imm sim
+
+> records
+
+> template
+
+[c:clsz]
+  [f:c.fldz]
+    [:exists:f.sim]
+      (([c.name]) clone).set[f.classy] (this.[f.name] ()
+      [:exists:f.imm][:].clone ()[]
+      );
+    [:]
+      [f.type] [f.name] = [f.default];
+      for (X x: this.[f.name] ())
+        [f.name].add (x[:exists:f.imm][:].clone ()[])
+      (([c.name]) clone).set[f.classy] ([f.name]);
+    []
+  []
+[]

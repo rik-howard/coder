@@ -46,22 +46,24 @@ implements Cloneable
   @Override public String toString ()
   {
     return new StringBuffer ("<")
-      .append (this.string ().toString ()).append (", ")
-      .append (this.opener ().toString ()).append (", ")
+      .append (this.string ().toString ()).append (" | ")
+      .append (this.opener ().toString ()).append (" | ")
       .append (this.closer ().toString ())
       .append (">").toString ()
     ;
   }
 
   @Override public Object clone ()
-  throws CloneNotSupportedException
   {
     Object clone = null;
+    try
+    {
       clone = super.clone ();
       ((Token) clone).setString (this.string ());
       ((Token) clone).setOpener (this.opener ());
       ((Token) clone).setCloser (this.closer ());
-
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
     return clone;
   }
 
@@ -89,13 +91,13 @@ implements Cloneable
     && this.interior ().matches ("^[a-z][a-zA-Z0-9\\.]*$");
   }
 
-  public Boolean isIteration ()
+  public Boolean isIterator ()
   {
     return ! this.isConstant ()
     && this.interior ().matches ("^[a-z][a-zA-Z0-9]*:[a-z][a-zA-Z0-9\\.]*$");
   }
 
-  public Boolean isCondition ()
+  public Boolean isConditor ()
   {
     return ! this.isConstant ()
     && this.interior ().matches ("^:[a-z][a-zA-Z0-9]*:[a-z][a-zA-Z0-9\\.]*$");

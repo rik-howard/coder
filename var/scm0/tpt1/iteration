@@ -1,0 +1,25 @@
+
+> relations
+A: name*
+B: a.name* name*
+X: name
+
+> records
+a: 0
+a: 1
+b: 0 0
+b: 0 1
+b: 1 0
+x: x
+
+> template
+
+The result:
+
+x [a:az]x []x
+[x.name] [a:az][x.name] [][x.name]
+[x.name] [a:az][a.name] [][x.name]
+x [a:az]y [b:a.bz][b.name] []y []x
+x [a:az][:exists:x.name]t [][]x
+x [a:az][:exists:x.name]t [:]f [][]x
+

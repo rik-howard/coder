@@ -35,30 +35,25 @@ implements Cloneable
 
   @Override public String toString ()
   {
-    return new StringBuffer ("<")
-      .append (this.expression ().toString ()).append (", ")
-      .append (super.parsementz ())
-      .append (">").toString ()
-    ;
+    String o = "<";
+    String c = ">";
+    String s = " | ";
+    return new StringBuffer ()
+    .append (o).append (this.expression ().toString ())
+    .append (s).append (super.toString ())
+    .append (c).toString ();
   }
 
   @Override public Object clone ()
-  throws CloneNotSupportedException
   {
     Object clone = null;
+    try
+    {
       clone = super.clone ();
       ((Alternative) clone).setExpression (this.expression ());
-
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
     return clone;
-  }
-
-  public String toTree (String padding)
-  {
-    StringBuffer buffer = new StringBuffer ();
-    buffer.append (padding + "+ " + this.expression ()).append ("\n");
-    for (Parsement parsement: super.parsementz ())
-      buffer.append (parsement.toTree (padding + "| ")).append ("\n");
-    return buffer.toString ();
   }
 
 }

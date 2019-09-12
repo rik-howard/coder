@@ -1,0 +1,44 @@
+
+.                |
+.                | package [pkg.name];
+.                |
+.                | import static testing.Module.show;
+.                | import static testing.Module.panic;
+.                | import static testing.Module.denial;
+.[imp:mod.impz]  | import [imp.name];
+.[]              |
+.                | public class [mod.name]Tester
+.                | {
+.                |
+.                |   public static void main (String OPNCLS strings)
+.                |   {
+.[fnv:mod.fnvz]  |     try {test[fnv.classy] ();} catch (AssertionError e) {panic (e);}
+.[][fno:mod.fnoz]|     try {test[fno.classy] ();} catch (AssertionError e) {panic (e);}
+.[]              |     show (".");
+.                |   }
+.                |
+.[fnv:mod.fnvz]  |   private static void test[fnv.classy] ()
+.                |   {
+.[arg:fnv.argz]  |     [arg.type] [arg.name] = [arg.default];
+.[]              |     [mod.name].[fnv.name]
+.                |     (
+.[arg:fnv.argz]  |       [arg.name][:isLast:arg][:],[]
+.[]              |     );
+.                |     show (".");
+.                |   }
+.                |
+.[][fno:mod.fnoz]|   private static void test[fno.classy] ()
+.                |   {
+.[arg:fno.argz]  |     [arg.type] [arg.name] = [arg.default];
+.[]              |     [fno.type] expected = [fno.default];
+.                |     [fno.type] actual = [mod.name].[fno.name]
+.                |     (
+.[arg:fno.argz]  |       [arg.name][:isLast:arg][:],[]
+.[]              |     );
+.                |     if (expected == null) assert actual == null: "not null: " + actual;
+.                |     else assert expected.equals (actual): denial (expected, actual);
+.                |     show (".");
+.                |   }
+.                |
+.[]              | }
+.                |

@@ -1,0 +1,31 @@
+
+> symbols
+opener: [
+closer: ]
+margin: |
+comment: ¢
+eof: €
+
+> relations
+Foo: name* value
+Bar: name* value
+
+> records
+foo: alpha one
+
+> functions
+barName (foo): foo.name
+¢ barValue (foo): foo.value
+¢ bar (foo): "bar:" & barName (foo) & barValue (foo)
+¢ uncomment the two lines above and comment the line below, for a work-around
+bar (foo): "bar:" & barName (foo) & foo.value
+
+> procedure
+for f in fooz
+  intro bar (f)
+end
+
+> template
+[foo:fooz][foo.name] [foo.value]
+[][bar:barz][bar.name] [bar.value]
+[]

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if test -z "$OLD_PATH"
+then OLD_PATH=$PATH
+else PATH=$OLD_PATH
+fi
+
+JAVA_HOME=~/work/program/sun-jdk-1.6.0.10
+CODER_HOME=~/work/program/lrbh-coder-0.4
+RECURSER_HOME=~/work/program/lrbh-recurser-0.6
+
+PATH=\
+$JAVA_HOME/bin:\
+$CODER_HOME/bin:\
+$RECURSER_HOME/bin:\
+$PATH

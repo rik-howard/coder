@@ -1,0 +1,30 @@
+
+
+
+> relations
+
+Pkg: name* folder cls
+
+Ifc: pkg.name* name* imp ext ivr imd
+Imp: pkg.name* ifc.name* name*
+Ivr: pkg.name* ifc.name* name* value
+Imd: pkg.name* ifc.name* name* type classy
+Irg: pkg.name* ifc.name* imd.name* name* type
+
+Cls: pkg.name* name* imp ext iml fld mtv mtd humble
+Imp: pkg.name* cls.name* name*
+Iml: pkg.name* cls.name* name*
+Fld: pkg.name* cls.name* name* type classy default
+Mtv: pkg.name* cls.name* name* classy
+Arg: pkg.name* cls.name* fnv.name* name* type default
+
+Src: pkg.name* name* imp ext iml var srf humble
+Imp: pkg.name* src.name* name*
+Srf: pkg.name* src.name* name* type classy default sr
+
+Mod: pkg.name* name* imp var
+Imp: pkg.name* mod.name* name*
+Fnv: pkg.name* mod.name* name* classy
+Arg: pkg.name* mod.name* fnv.name* name* type default
+Fno: pkg.name* mod.name* name* classy type default
+Arg: pkg.name* mod.name* fno.name* name* type default

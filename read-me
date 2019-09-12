@@ -1,17 +1,127 @@
-lrbh-xoder
+lrbh-coder-0.4
+rik at lrbh info
+2010-08-30
 
-2010-05-22 0.3
-> .../lrbh-coder-0.3/compile
-> .../lrbh-coder-0.3/use
 
-2009-12-20 0.2
-> java -cp lrbh-xoder/tmp xaos.Xesser\
-  -xode -from /home/lyndon/[pjt.name] -with /home/lyndon/pjt -to /home/lyndon
 
-2009-11-22 0.1
-edit the file name in
-  xaos.XystemUser.main ()
+What is ...
 
-2009-11-21 0.0
-edit the file name in
-  xaos.XystemUser.main ()
+LRBH Coder is a language-agnostic code generator (available under the GPL v3).  It can be used to generate a single folder, file or a tree of folders and files.  It is written in Java (with some convenience scripts in Bash), but can be used to generate code (or other text) of any language.
+
+An user defines a schema, which is consumed by the coder, which produces the code.  A schema is a pair, consisting of a template and a mapping.  The mapping is composed of some:
+. symbols
+. relations
+. records
+. functions (optional)
+. procedures (optional)
+
+The accompanying examples generally divide a schema using the following folder structure
+
+    + project-name
+      + scm
+        + tpt
+          - [eg.name].src
+          - ...
+        + mpg
+          - symbols
+          - relations
+          - ...
+      - set-up
+
+The examples in Coder's var-folder, however, often take a more straight-forward approach.
+
+
+
+How to ...
+
+Ensure the following are available.
+
+JDK 1.6: Java primitives are shunned, where possible, so auto-boxing is used.  What may be is the detriment to efficiency from this approach is acceptable for the benefits to correctness, reliability and accuracy.  Auto-boxing requires Java 1.5 or higher.
+
+Bash (Cygwin?): this is optional, but desirable.  The scripts are short and convenient, but not necessary.  Please read them as instructions on how the system is to be compiled, tested, etc., if you cannot run them.
+
+Recurser (http://lrbh.info/recurser): this is used, in some (Bash) set-up scripts, for some last-minute symbol replacement; with apologies, please use, or replace the symbols by another means.
+
+Install
+
+  > pgm=~/program/lrbh-coder-0.4
+  > svn export http://lrbh-svn.cvsdude.com/public/coder/tag/0.4 $pgm
+
+Customise $pgm/envment to your system
+
+  > source $pgm/envment
+  > $pgm/compile
+  > $pgm/tast
+  > $pgm/use
+
+The final call is equivalent to a series of calls such as
+
+  > code -from $pgm/var/scm0/tpt0
+
+Compare the output of the above to the corresponding files under $pgm/var/scm0, to get an idea of how to define the schemata.
+
+Use, for example
+
+  > $pgm/var/scm1/set-up
+
+which will write the generated code to the console.  The call is equivalent to
+
+  > code -from $pgm/var/scm1/tpt -with $pgm/var/scm1/mpg
+
+Use
+
+  > $pgm/var/scm1/set-up coded-scm
+
+which will write the generated code, to the (automatically created) coded-scm folder, and then build the code.  The call is equivalent to
+
+  > code -from $pgm/var/scm1/tpt -with $pgm/var/scm1/mpg -to coded-scm
+  ...
+  > coded-scm/build
+
+Note that the ... includes some last-minute symbol replacement, hence the dependence on Recurser, and makes the generated build-file executable.  Coder does not write over existing files, but it will add to an existing folder.  The set-up scripts tend to remove the target before recreating it.
+
+Try
+
+  > $pgm/var/scm1/set-up | coder-grep eg/Bean
+  > $pgm/var/scm1/set-up | coder-grep eg/BeanTester
+
+
+
+Road map
+
+. Coder should clean the target.  Initially, this will mean that Coder removes each file in the target, if it is identical to its generated couterpart; otherwise it will leave the file
+
+. It would be nice to be able to represent relations and records as trees
+
+. ...
+
+
+
+Wish list
+
+. The last-minute symbol replacement should be done by the Java program
+. The condition handling should be extensible, similar to the function handling, which needs an example
+. There should be some functionality to facilitate the looking up of records based on some criteria
+. The program should produce better error messages
+
+
+
+Known issues
+
+See $pgm/var/bug/000, ...
+
+
+
+Exercise
+
+1.  Run
+
+  > $pgm/var/scm1/set-up | coder-grep eg/Face
+
+The class of the field in the interface (under $pgm/var/scm1/tpt/src) is hard-coded to "String".  Make it variable.  (You will need to replace "String" with "[ivr.type]", or similar, in the template.  Run the generation again.  To use the variable, you will need to alter the mapping: add "type" to the "Ivr" relation and add some suitable values to the "ivr" records.)
+
+2.  Generate the code from scm2.
+
+3.  See http://lrbh.info/codee.  The above templates were written for demonstration purposes -- they can be improved.  A more-thoughtful attempt will appear there.
+
+

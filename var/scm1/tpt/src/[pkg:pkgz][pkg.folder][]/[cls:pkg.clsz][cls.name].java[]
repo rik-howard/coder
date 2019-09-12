@@ -1,0 +1,62 @@
+
+.                                  |
+.                                  | package [pkg.name];
+.[:exists:cls.imp]                 |
+.[imp:cls.impz]                    | import [imp.name];
+.[][]                              |
+.                                  | public class [cls.name]
+.[:exists:cls.ext]                 | extends [cls.ext]
+.[][:exists:cls.iml]               | implements [iml:cls.imlz][iml.name][:isLast:iml][:], [][]
+.[]                                | {
+.[:exists:cls.fld]                 |
+.[fld:cls.fldz]                    |   private [fld.type] [fld.name];
+.[]                                |
+.[fld:cls.fldz]                    |   public void set[fld.classy] ([fld.type] [fld.name]) {this.[fld.name] = [fld.name] == null? [fld.default]: [fld.name];}
+.[]                                |
+.[fld:cls.fldz]                    |   public [fld.type] [fld.name] () {if (this.[fld.name] == null) this.set[fld.classy] (null); return this.[fld.name];}
+.[][]                              |
+.                                  |   @Override public int hashCode ()
+.                                  |   {
+.                                  |     Integer code = 0;
+.[:exists:cls.ext]                 |     code += super.hashCode ();
+.[][fld:cls.fldz]                  |     code += this.[fld.name] ().hashCode ();
+.[]                                |     return code;
+.                                  |   }
+.                                  |
+.                                  |   @Override public boolean equals (Object object)
+.                                  |   {
+.                                  |     if (object == null) return false;
+.                                  |     else if (object instanceof [cls.name])
+.                                  |     {
+.                                  |       Boolean equals = true;
+.[:exists:cls.ext]                 |       [cls.name] that = ([cls.name]) object;
+.[:][:exists:cls.fld]              |       [cls.name] that = ([cls.name]) object;
+.[][][:exists:cls.ext]             |       equals &= super.equals (that);
+.[][fld:cls.fldz]                  |       equals &= this.[fld.name] ().equals (that.[fld.name] ());
+.[]                                |       return equals;
+.                                  |     }
+.                                  |     else return false;
+.                                  |   }
+.[:exists:cls.ext]                 |
+.                                  |   public String superString ()
+.                                  |   {
+.                                  |     return super.toString ();
+.                                  |   }
+.[]                                |
+.                                  |   @Override public String toString ()
+.                                  |   {
+.                                  |     String o = "<";
+.                                  |     String c = ">";
+.                                  |     String s = " | ";
+.                                  |     StringBuffer buffer = new StringBuffer (o);
+.[fld:cls.fldz]                    |     buffer[:isFirst:fld][:].append (s)[].append (this.[fld.name] ().toString ());
+.[][:exists:cls.ext]               |     buffer[:exists:cls.fld].append (s)[].append (super.toString ());
+.[]                                |     return buffer.append (c).toString ();
+.                                  |   }
+.[:exists:cls.mtv]                 |
+.[mtv:cls.mtvz]                    |   public void [mtv.name] ([arg:mtv.argz][arg.type] [arg.name][:isLast:arg][:], [][])
+.                                  |   {
+.                                  |   }
+.[][]                              |
+.                                  | }
+.                                  |

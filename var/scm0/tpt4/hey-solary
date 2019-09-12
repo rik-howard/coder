@@ -1,0 +1,41 @@
+
+
+
+> symbols
+
+opener: [
+closer: ]
+margin: |
+clause: :
+litkey: £
+comment: ¢
+eof: €
+
+
+
+> relations
+
+Foo: name
+Sna: name
+Tar: name
+
+
+> records
+sna: fu
+
+
+> functions
+
+
+
+> procedure
+
+intro "foo: bar"
+¢ intro "tar:" & sna.name
+
+
+> template
+
+[foo.name]
+¢ [sna.name]
+¢ [tar.name]

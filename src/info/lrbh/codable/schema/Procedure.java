@@ -1,21 +1,26 @@
+
+
+
 package info.lrbh.codable.schema;
 
+import java.util.List;
+import java.util.ArrayList;
 
 public class Procedure
 implements Cloneable
 {
 
-  private String string;
+  private List <Statement> statements;
 
-  public void setString (String string) {this.string = string == null? new String (): string;}
+  public void setStatements (List <Statement> statements) {this.statements = statements == null? new ArrayList <Statement> (): statements;}
 
-  public String string () {if (this.string == null) this.setString (null); return this.string;}
+  public List <Statement> statements () {if (this.statements == null) this.statements = new ArrayList <Statement> (); return this.statements;}
 
   @Override public int hashCode ()
   {
-    return
-      this.string ().hashCode ()
-    ;
+    Integer code = 0;
+    code += this.statements ().hashCode ();
+    return code;
   }
 
   @Override public boolean equals (Object object)
@@ -23,30 +28,26 @@ implements Cloneable
     if (object == null) return false;
     else if (object instanceof Procedure)
     {
+      Boolean equals = true;
       Procedure that = (Procedure) object;
-      return
-        this.string ().equals (that.string ())
-      ;
+      equals &= this.statements ().equals (that.statements ());
+      return equals;
     }
     else return false;
   }
 
   @Override public String toString ()
   {
-    return new StringBuffer ("<")
-      .append (this.string ().toString ())
-      .append (">").toString ()
-    ;
+    StringBuffer buffer = new StringBuffer ("<");
+    buffer.append (this.statements ().toString ());
+    return buffer.append (">").toString ();
   }
 
   @Override public Object clone ()
   throws CloneNotSupportedException
   {
-    Object clone = null;
-      clone = super.clone ();
-      ((Procedure) clone).setString (this.string ());
-
-    return clone;
+    throw new UnsupportedOperationException ();
   }
 
 }
+

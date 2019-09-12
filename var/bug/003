@@ -1,0 +1,72 @@
+
+
+
+> symbols
+
+eof: €
+opener: [
+closer: ]
+margin: |
+comment: ¢
+
+
+
+> relations
+
+¢ Parent: name*
+Parent: name* child
+Child: parent.name* name*
+
+
+
+> records
+
+¢ parent: parent0
+parent: parent0 child
+child: parent0 child0
+child: parent0 child1
+
+
+
+> template
+The following schema ought to provide the subsequent output.
+
+  Parent: name*
+  Child: parent.name* name*
+
+  parent: parent0
+  child: parent0 child0
+  child: parent0 child1
+
+  <:exists:parent>   :
+  <p:parentz>        :   <p.name>
+  <:exists:p.child>  :
+  <c:p.childz>       :     <c.parent.name> <c.name>
+  <><>               :
+  <><>               :
+
+
+
+Output:
+
+[p:parentz]        |   [p.name]
+[:exists:p.child]  |
+[c:p.childz]       |     [c.parent.name] [c.name]
+[][]               |
+[]<>               |
+
+
+
+The work-around is to introduce an extra field to the Parent-relation and parent-record, and to drop the first existence check.
+
+  Parent: name* child
+  parent: parent0 child
+
+  <p:parentz>        :   <p.name>
+  <:exists:p.child>  :
+  <c:p.childz>       :     <c.parent.name> <c.name>
+  <><>               :
+
+
+
+See bug/003.

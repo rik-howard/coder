@@ -1,3 +1,4 @@
+
 package info.lrbh.codive.schema.template;
 
 import java.util.Arrays;
@@ -11,12 +12,12 @@ public class Cleaner
   public static final Cleanment cleaning (String cleanee, String opener, String closer, String margin)
   {
     Cleanment cleanment = new Cleanment ();
-    if (margin == null)
-    {
-      cleanment.setString (cleanee);
-      cleanment.setOpener (opener);
-      cleanment.setCloser (closer);
-    }
+    if (margin == null) throw new Error ("the margin is null");
+    //{
+    //  cleanment.setString (cleanee);
+    //  cleanment.setOpener (opener);
+    //  cleanment.setCloser (closer);
+    //}
     else
     {
       StringBuffer buffer = new StringBuffer ();
@@ -45,7 +46,7 @@ public class Cleaner
    
   private static final String unmargined (String string, String margin)
   {
-    return string.trim ().replaceFirst ("^\\.?", "").trim ().replaceFirst ("\\ *" + escaped (margin) + "\\ ?", "");
+    return string.replaceFirst ("^\\.?", "").replaceFirst ("\\ *" + escaped (margin) + "\\ ?", "");
   }
 
 }

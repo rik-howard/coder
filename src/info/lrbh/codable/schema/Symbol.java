@@ -1,3 +1,6 @@
+
+
+
 package info.lrbh.codable.schema;
 
 
@@ -11,15 +14,15 @@ implements Cloneable
   public void setName (String name) {this.name = name == null? new String (): name;}
   public void setValue (String value) {this.value = value == null? new String (): value;}
 
-  public String name () {if (this.name == null) this.setName (null); return this.name;}
-  public String value () {if (this.value == null) this.setValue (null); return this.value;}
+  public String name () {if (this.name == null) this.name = new String (); return this.name;}
+  public String value () {if (this.value == null) this.value = new String (); return this.value;}
 
   @Override public int hashCode ()
   {
-    return
-      this.name ().hashCode () +
-      this.value ().hashCode ()
-    ;
+    Integer code = 0;
+    code += this.name ().hashCode ();
+    code += this.value ().hashCode ();
+    return code;
   }
 
   @Override public boolean equals (Object object)
@@ -27,33 +30,31 @@ implements Cloneable
     if (object == null) return false;
     else if (object instanceof Symbol)
     {
+      Boolean equals = true;
       Symbol that = (Symbol) object;
-      return
-        this.name ().equals (that.name ()) &&
-        this.value ().equals (that.value ())
-      ;
+      equals &= this.name ().equals (that.name ());
+      equals &= this.value ().equals (that.value ());
+      return equals;
     }
     else return false;
   }
 
   @Override public String toString ()
   {
-    return new StringBuffer ("<")
-      .append (this.name ().toString ()).append (", ")
-      .append (this.value ().toString ())
-      .append (">").toString ()
-    ;
+    String o = "<";
+    String c = ">";
+    String s = " | ";
+    StringBuffer buffer = new StringBuffer (o);
+    buffer.append (this.name ().toString ()).append (s);
+    buffer.append (this.value ().toString ());
+    return buffer.append (c).toString ();
   }
 
   @Override public Object clone ()
   throws CloneNotSupportedException
   {
-    Object clone = null;
-      clone = super.clone ();
-      ((Symbol) clone).setName (this.name ());
-      ((Symbol) clone).setValue (this.value ());
-
-    return clone;
+    throw new UnsupportedOperationException ();
   }
 
 }
+

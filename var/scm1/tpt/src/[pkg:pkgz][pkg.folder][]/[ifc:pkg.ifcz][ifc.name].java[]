@@ -1,0 +1,14 @@
+.                                 |
+.                                 | package [pkg.name];
+.[:exists:ifc.imp]                |
+.[imp:ifc.impz]                   | import [imp.name];
+.[][]                             |
+.                                 | public interface [ifc.name]
+.                                 | {
+.[:exists:ifc.ivr]                |
+.[ivr:ifc.ivrz]                   |   public static final String [ivr.name] = [ivr.value];
+.[][][:exists:ifc.imd]            |
+.[imd:ifc.imdz]                   |   public [imd.type] [imd.name] ([irg:imd.irgz][irg.type] [irg.name][:isLast:irg][:], [][]);
+.[][]                             |
+.                                 | }
+.                                 |

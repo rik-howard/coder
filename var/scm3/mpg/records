@@ -1,0 +1,20 @@
+
+> records
+
+pkg: stating stating
+
+ifc: stating Statable null null
+
+cls: stating Statee null null iml null null null statee
+iml: stating Statee Statable
+
+cls: stating Statement null null null null null null statement
+
+mod: stating Stater null null
+fnv: stating Stater state State
+arg: stating Stater state statee Statable new__Statee__()
+fno: stating Stater states Stats Boolean new__Boolean__(true)
+arg: stating Stater states statee0 Statable new__Statee__()
+arg: stating Stater states statee1 Statable new__Statee__()
+fno: stating Stater station Station Statement new__Statement__()
+arg: stating Stater station statee Statable new__Statee__()

@@ -1,31 +1,35 @@
+
+
+
 package info.lrbh.codable.schema;
 
-import java.util.ArrayList;
+import static info.lrbh.codable.Schematic.star;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Record
 implements Cloneable
 {
 
   private String ref;
-  private List <String> namez;
-  private List <String> valuez;
+  private List <String> names;
+  private List <String> values;
 
   public void setRef (String ref) {this.ref = ref == null? new String (): ref;}
-  public void setNamez (List <String> namez) {this.namez = namez == null? new ArrayList <String> (): namez;}
-  public void setValuez (List <String> valuez) {this.valuez = valuez == null? new ArrayList <String> (): valuez;}
+  public void setNames (List <String> names) {this.names = names == null? new ArrayList <String> (): names;}
+  public void setValues (List <String> values) {this.values = values == null? new ArrayList <String> (): values;}
 
-  public String ref () {if (this.ref == null) this.setRef (null); return this.ref;}
-  public List <String> namez () {if (this.namez == null) this.setNamez (null); return this.namez;} 
-  public List <String> valuez () {if (this.valuez == null) this.setValuez (null); return this.valuez;}
+  public String ref () {if (this.ref == null) this.ref = new String (); return this.ref;}
+  public List <String> names () {if (this.names == null) this.names = new ArrayList <String> (); return this.names;}
+  public List <String> values () {if (this.values == null) this.values = new ArrayList <String> (); return this.values;}
 
   @Override public int hashCode ()
   {
-    return
-      this.ref ().hashCode () +
-      this.namez ().hashCode () +
-      this.valuez ().hashCode ()
-    ;
+    Integer code = 0;
+    code += this.ref ().hashCode ();
+    code += this.names ().hashCode ();
+    code += this.values ().hashCode ();
+    return code;
   }
 
   @Override public boolean equals (Object object)
@@ -33,73 +37,75 @@ implements Cloneable
     if (object == null) return false;
     else if (object instanceof Record)
     {
+      Boolean equals = true;
       Record that = (Record) object;
-      return
-        this.ref ().equals (that.ref ()) &&
-        this.namez ().equals (that.namez ()) &&
-        this.valuez ().equals (that.valuez ())
-      ;
+      equals &= this.ref ().equals (that.ref ());
+      equals &= this.names ().equals (that.names ());
+      equals &= this.values ().equals (that.values ());
+      return equals;
     }
     else return false;
   }
 
   @Override public String toString ()
   {
-    return new StringBuffer ("<")
-      .append (this.ref ().toString ()).append (", ")
-      .append (this.namez ().toString ()).append (", ")
-      .append (this.valuez ().toString ())
-      .append (">").toString ()
-    ;
+    String o = "<";
+    String c = ">";
+    String s = " | ";
+    StringBuffer buffer = new StringBuffer (o);
+    buffer.append (this.ref ().toString ()).append (s);
+    buffer.append (this.names ().toString ()).append (s);
+    buffer.append (this.values ().toString ());
+    return buffer.append (c).toString ();
   }
 
   @Override public Object clone ()
   throws CloneNotSupportedException
   {
-    Object clone = null;
-      clone = super.clone ();
-      ((Record) clone).setRef (this.ref ());
-      ((Record) clone).setNamez (this.namez ());
-      ((Record) clone).setValuez (this.valuez ());
-    return clone;
+    throw new UnsupportedOperationException ();
   }
 
-  //
+
 
   public void setNVP (String name, String value)
   {
     assert name != null;
     assert value != null;
-    if (this.namez ().contains (name))
-      this.valuez ().set (this.namez ().indexOf (name), value);
+    while (this.names ().size () > this.values ().size ()) this.values.add (new String ());
+    if (this.names ().contains (name))
+      this.values ().set (this.names ().indexOf (name), value);
     else
     {
-      this.namez ().add (name);
-      this.valuez ().add (value);
+      this.names ().add (name);
+      this.values ().add (value);
     }
   }
-/*
-  public void unsetNVP (String name)
+
+  public Boolean isStatic ()
   {
-    assert name != null;
-    this.valuez ().remove (this.namez ().indexOf (name));
-    this.namez ().remove (name);
+    Boolean statik = true;
+    for (String name: this.names ())
+      if (name.endsWith ("*"))
+        statik = false;
+    return statik;
   }
-*/
+
   public String key ()
   {
     StringBuffer buffer = new StringBuffer (this.ref ());
-    for (String name: this.namez ())
-      if (name.endsWith ("*"))
-        buffer.append (" ").append (this.valuez ().get (this.namez ().indexOf (name)));
+    for (String name: this.names ())
+      if (name.endsWith (star))
+        buffer.append (" ").append (this.values ().get (this.names ().indexOf (name)));
     return buffer.toString ();
   }
 
   public String value (String name)
   {
-    Integer index = this.namez ().indexOf (name);
-    return index >= 0 && index < this.valuez ().size ()?
-      this.valuez ().get (index): null;
+    Integer index = this.names ().indexOf (name);
+    if (index == -1) index = this.names ().indexOf (name + star);
+    return index >= 0 && index < this.values ().size ()?
+      this.values ().get (index): null;
   }
 
 }
+

@@ -1,0 +1,24 @@
+
+> relations
+I: name
+Thou: name*
+We: name
+
+> records
+i: Rik
+thou: Tom
+thou: Harry
+we: theNamed
+¢ toggle a comment on the line above
+
+> template
+.         |
+.         | Hello, World!
+.         | My name is [i.name].
+.[t:thouz]| Thy name is [t.name].  Thou art countee [t.xount].
+.[]       | Is our name [:exists:we.name][we.name][:]The Unnamed[]?
+.         |
+.         | [t:thouz][t.xount][:isLast:t.xount][:] and [][]
+.         | [t:thouz][:isFirst:t.xount][:] and [][t.xount][]
+.         | [t:thouz][t.xount][:isLast:t][:] and [][]
+.         | [t:thouz][:isFirst:t][:] and [][t.xount][]

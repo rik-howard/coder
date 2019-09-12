@@ -1,0 +1,69 @@
+
+.                 |
+.                 | package [pkg.name];
+.                 |
+.                 | import static testing.Module.show;
+.                 | import static testing.Module.panic;
+.                 | import static testing.Module.denial;
+.[imp:cls.impz]   | import [imp.name];
+.[]               |
+.                 | public class [cls.name]Tester
+.                 | {
+.                 |
+.                 |   private static final [cls.name] newby = new [cls.name] ();
+.                 |
+.                 |   public static void main (String OPNCLS args)
+.                 |   {
+.[fld:cls.fldz]   |     try {test[fld.classy] ();} catch (AssertionError e) {panic (e);}
+.[]               |     try {testHashCode ();} catch (AssertionError e) {panic (e);}
+.                 |     try {testEquals ();} catch (AssertionError e) {panic (e);}
+.[:exists:cls.ext]|     try {testSuperString ();} catch (AssertionError e) {panic (e);}
+.[]               |     try {testToString ();} catch (AssertionError e) {panic (e);}
+.                 |     show (".");
+.                 |   }
+.                 |
+.[fld:cls.fldz]   |   private static void test[fld.classy] ()
+.                 |   {
+.                 |     [fld.type] expected = [fld.default];
+.                 |     [fld.type] actual = newby.[fld.name] ();
+.                 |     assert expected.equals (actual): denial (expected, actual);
+.                 |     show (".");
+.                 |   }
+.                 |
+.[]               |   private static void testHashCode ()
+.                 |   {
+.                 |     Integer expected = new [cls.name] ().hashCode ();
+.                 |     Integer actual = newby.hashCode ();
+.                 |     assert expected.equals (actual): denial (expected, actual);
+.                 |     show (".");
+.                 |   }
+.                 |
+.                 |   private static void testEquals ()
+.                 |   {
+.                 |     assert ! newby.equals (null): newby + " equals null";
+.                 |     assert ! newby.equals (0): newby + " equals 0";
+.                 |     assert newby.equals (new [cls.name] ()): "not " + newby + " equals " + new [cls.name] ();
+.                 |     show (".");
+.                 |   }
+.                 |
+.[:exists:cls.ext]|   private static void testSuperString ()
+.                 |   {
+.                 |     String expected = new [cls.ext] ().toString ();
+.                 |     String actual = newby.superString ();
+.                 |     assert expected.equals (actual): denial (expected, actual);
+.                 |     show (".");
+.                 |   }
+.                 |
+.[]               |   private static void testToString ()
+.                 |   {
+.                 |     String expected = "<[fld:cls.fldz]"
+.                 |     + [fld.default] + "[:isLast:fld][:]__|__[][][:exists:cls.ext][:exists:cls.fld]__|__[]"
+.                 |     + newby.superString ()
+.                 |     + "[]>";
+.                 |     String actual = newby.toString ();
+.                 |     assert expected.equals (actual): denial (expected, actual);
+.                 |     show (".");
+.                 |   }
+.                 |
+.                 | }
+.                 |

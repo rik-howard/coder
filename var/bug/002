@@ -1,0 +1,21 @@
+
+> symbols
+eof: €
+opener: [
+closer: ]
+margin: |
+comment: ¢
+
+> relations
+Pt: nm* sxm cd
+Cd: pt.name* name*
+
+> records
+pt: pt0 sxm cd
+pt: pt1 null cd
+cd: pt0 cd0
+cd: pt0 cd1
+
+> template
+[p:ptz][p.name] is a [:exists:p.cd][:exists:p.sxm]father[:]mother[]
+[][]

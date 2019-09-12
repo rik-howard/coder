@@ -1,21 +1,11 @@
 #!/bin/bash
 
 home=$(dirname $0)
-xode=$home/bin/xode
-sch=$home/var/sch
+code=$home/bin/code
+scm=$home/var/scm0
 
-$xode -from $sch/empty
-$xode -from $sch/constant
-$xode -from $sch/variable
-$xode -from $sch/iteration
-$xode -from $sch/condition
-
-$xode -from $sch/hello-world
-$xode -from $sch/albums
-$xode -from $sch/table.sql
-$xode -from $sch/\[b\:bz\]\[a\:b.az\]\[b.name\]-\[a.name\]\[\]\[\]
-$xode -from $sch/\[tb\:tbz\]\[tb.name\].sql\[\]
-
-$xode -from $sch/tpt/folder
-$xode -from $sch/tpt/\$\{pkg\:pkgz\}\$\{pkg.path\}\$\{\} -with $sch/mpg/pkgz
-$xode -from $sch/tpt/\[pjt.name\] -with $sch/mpg/pjt-0 $sch/mpg/pjt-1
+$code -from $scm/tpt0
+$code -from $scm/tpt1
+$code -from $scm/tpt2
+$code -from $scm/tpt3
+$code -from $scm/tpt4

@@ -1,0 +1,21 @@
+.                 |
+.                 | package [pkg.name];
+.[:exists:mod.imp]|
+.[imp:mod.impz]   | import [imp.name];
+.[][]             |
+.                 | public class [mod.name]
+.                 | {
+.[:exists:mod.var]|
+.[var:mod.varz]   |   public static final [var.type] [var.name] = [var.default];
+.[][]             |
+.[fnv:mod.fnvz]   |   public static final void [fnv.name] ([arg:fnv.argz][arg.type] [arg.name][:isLast:arg][:], [][])
+.                 |   {
+.                 |   }
+.                 |
+.[][fno:mod.fnoz] |   public static final [fno.type] [fno.name] ([arg:fno.argz][arg.type] [arg.name][:isLast:arg][:], [][])
+.                 |   {
+.                 |     return [fno.default];
+.                 |   }
+.                 |
+.[]               | }
+.                 |
