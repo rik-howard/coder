@@ -1,0 +1,8 @@
+#!/bin/bash
+
+origin=$(pwd)
+home=$(dirname $0)
+base=~
+command=$1
+shift
+arguments=$@

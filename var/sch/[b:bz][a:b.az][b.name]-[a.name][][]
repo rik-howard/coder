@@ -1,0 +1,28 @@
+
+> symbolz
+xeof: <eof>
+xpener: [
+xloser: ]
+xargin: |
+
+> relationz
+B: name*
+A: b.name* name*
+
+> recordz
+b: beatles
+a: beatles please
+a: beatles with
+b: stones
+a: stones stones
+a: beatles night
+a: beatles sale
+
+> functionz
+
+> procedure
+
+> template
+
+band: [b.name]
+album: [a.name]

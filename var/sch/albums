@@ -1,0 +1,42 @@
+
+> symbolz
+xeof: <eof>
+xpener: [
+xloser: ]
+xargin: |
+
+> relationz
+B: name*
+A: name*
+D: string*
+R: b.name* a.name* d.string*
+
+> recordz
+d: 1963-03-22
+d: 1963-11-22
+d: 1964-04-16
+d: 1964-07-10
+d: 1964-12-04
+b: beatles
+b: stones
+a: please
+a: with
+a: stones
+a: night
+a: sale
+r: beatles please 1963-03-22
+r: beatles with 1963-11-22
+r: stones stones 1964-04-16
+r: beatles night 1964-07-10
+r: beatles sale 1964-12-04
+
+> functionz
+
+> procedure
+
+> template
+.[r:rz] |
+.       | band: [r.b.name]
+.       | album: [r.a.name]
+.       | date: [r.d.string]
+.[]     |

@@ -1,0 +1,16 @@
+
+> relationz
+
+Foo: bar
+
+
+
+> recordz
+
+foo: baz
+
+
+
+> template
+
+.   | The value of foo.bar is [foo.bar].

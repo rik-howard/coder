@@ -1,0 +1,12 @@
+
+> symbolz
+xeof: <eof>
+xpener: ${
+xloser: }
+
+> relationz
+Pkg: name* path
+
+> recordz
+pkg: one.one one/one
+pkg: one.two one/two

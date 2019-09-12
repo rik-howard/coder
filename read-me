@@ -1,5 +1,9 @@
 lrbh-xoder
 
+2010-05-22 0.3
+> .../lrbh-coder-0.3/compile
+> .../lrbh-coder-0.3/use
+
 2009-12-20 0.2
 > java -cp lrbh-xoder/tmp xaos.Xesser\
   -xode -from /home/lyndon/[pjt.name] -with /home/lyndon/pjt -to /home/lyndon

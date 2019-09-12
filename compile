@@ -1,0 +1,5 @@
+#!/bin/bash
+home=$(dirname $0)
+rm -r $home/tmq 2>&0
+mkdir $home/tmq
+javac -sourcepath $home/src -d $home/tmq $home/src/info/lrbh/codive/Coder.java

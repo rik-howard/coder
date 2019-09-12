@@ -1,0 +1,11 @@
+
+> relationz
+Sna: foo*
+
+> recordz
+sna: foz
+sna: fox
+
+> template
+[s:snaz][s.foo]
+[]
