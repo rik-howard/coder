@@ -1,0 +1,17 @@
+#
+I: name
+Thou: name*
+We: name
+
+#
+i: Rik
+thou: Tom
+thou: Harry
+we: theNamed # toggle comment on this line
+
+#
+.         | Hello, World!
+.         | My name is [i.name].
+.[t:thouz]| Thy name is [t.name].  Thou art countee [t.xount].
+.[]       | Is our name [:we.name.][we.name][:]The Unnamed[]?
+.         |
