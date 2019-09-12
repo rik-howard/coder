@@ -13,7 +13,7 @@ public class XtringTester
     assert head ("Tb: dbName* name").equals ("Tb");
     assert body ("Tb: dbName* name").equals ("dbName* name");
     assert seperation ("dbName* name", space).equals (Arrays.asList ("dbName*", "name"));
-    System.out.print (".");
+    System.out.print (tip);
   }
 
 }

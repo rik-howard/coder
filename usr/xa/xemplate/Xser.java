@@ -1,15 +1,17 @@
 
 package xa.xemplate;
 
+import static xa.xore.Xtring.xmpty;
+import static xa.xore.Xtring.tip;
 import static xa.xemplate.Xarser.xarsing;
 import static xa.xemplate.Xinker.xinking;
 import static xa.xemplate.Xleaner.xleaning;
 import static xa.xemplate.Xokeniser.xokenisation;
 import static xa.xemplate.Xompiler.xompilation;
-import static xaos.Xystem.xbjectz;
-import static xaos.Xystem.xlassz;
+import static xaos.Xemory.xbjectz;
 import java.util.Arrays;
 import java.util.List;
+import static xaos.Xemory.xlassz;
 
 public class Xser
 {
@@ -20,7 +22,7 @@ public class Xser
     ".            | My name is [me.name].",
     ".[thou:thouz]| Thy name is [thou.name].",
     ".[]          | Is our name [:our.name.][our.name][:]The Unnamed[]?",
-    "."
+    tip
   );
   public static List <String> xleanment = Arrays.asList
   (
@@ -28,7 +30,7 @@ public class Xser
     "My name is [me.name].",
     "[thou:thouz]Thy name is [thou.name].",
     "[]Is our name [:our.name.][our.name][:]The Unnamed[]?",
-    ""
+    xmpty
   );
   public static List <String> xokenment = Arrays.asList
   (

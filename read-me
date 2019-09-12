@@ -1,5 +1,9 @@
 lrbh-xoder
 
+2009-12-20 0.2
+> java -cp lrbh-xoder/tmp xaos.Xesser\
+  -xode -from /home/lyndon/[pjt.name] -with /home/lyndon/pjt -to /home/lyndon
+
 2009-11-22 0.1
 edit the file name in
   xaos.XystemUser.main ()

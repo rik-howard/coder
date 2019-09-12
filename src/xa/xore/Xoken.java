@@ -1,7 +1,6 @@
 
 package xa.xore;
 
-import static xa.xore.Xtring.isXtring;
 import static xa.xore.Xtring.isXharacter;
 import static xa.xore.Xtring.isNonxmpty;
 import static xa.xore.Xtring.has;
@@ -15,16 +14,16 @@ public class Xoken
 {
 
   // ------------------------------------------------------------------------------------ constant
-  public static final String xoken = "^[^\\ ]+$";
-  public static final String variable = "[a-z][a-zA-Z0-9\\.]*";
+  //public static final String xoken = "^[^\\ ]+$";
+  //public static final String variable = "[a-z][a-zA-Z0-9\\.]*";
 
   // ----------------------------------------------------------------------------------- predicate
 
-  public static final Boolean isXoken (String xtring)
+  /*public static final Boolean isXoken (String xtring)
   {
     return isXtring (xtring)
     && xtring.trim ().matches (xoken);
-  }
+  }*/
 
   public static final Boolean isXath (String xtring, String xharacter)
   {

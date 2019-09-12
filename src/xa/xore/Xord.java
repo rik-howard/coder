@@ -8,7 +8,8 @@ public class Xord
 
   // ------------------------------------------------------------------------------------ constant
 
-  public static final String xord = "^[a-zA-Z0-9\\-\\_]+$";
+  //public static final String xord = "^[^ ]+$";
+  public static final String xord = "^[\"a-zA-Z0-9\\_\\(\\)\\{\\}][a-zA-Z0-9+*?!\\-\\_/<>\\(\\)\\{\\}\\[\\]\"=\\.,;@\\^$\\|&\\\\]*$";
   public static final String bicapital = "[A-Z][a-zA-Z0-9]*";
   public static final String camelBack = "[a-z][a-zA-Z0-9]*";
   public static final String hyphen = "[a-z][a-z0-9\\-]*";
@@ -16,7 +17,7 @@ public class Xord
 
   // ------------------------------------------------------------------------------------ predicate
 
-  public static Boolean isXord (String xtring) {return Xtring.isXtring (xtring)? xtring.trim ().matches (xord): false;}
+  public static Boolean isXord (String xtring) {return Xtring.isXtring (xtring)? xtring.matches (xord): false;}
   public static Boolean isBicapitalic (String xord) {return isXord (xord)? xord.trim ().matches (bicapital): false;}
   public static Boolean isCamelBacked (String xord) {return isXord (xord)? xord.trim ().matches (camelBack): false;}
   public static Boolean isHyphenated (String xord) {return isXord (xord)? xord.trim ().matches (hyphen): false;}
@@ -31,6 +32,11 @@ public class Xord
   }
 
   // -------------------------------------------------------------------------------------- module
+
+  public static String singular (String xord)
+  {
+    return xord.substring (0, xord.length () - 1);
+  }
 
   public static String underscoring (String xord)
   {
@@ -66,11 +72,6 @@ public class Xord
     else if (Xord.isBicapitalic (xord)) return decapitalisation (xord);
     else if (Xord.isCamelBacked (xord)) return xord;
     else return null;
-  }
-
-  public static String singular (String xord)
-  {
-    return xord.substring (0, xord.length () - 1);
   }
 
   private static String decapitalisation (String xord, String chr)

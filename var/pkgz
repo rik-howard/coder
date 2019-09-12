@@ -1,0 +1,13 @@
+
+# xymbols
+@eofMarker: <eof>
+@opener: ${
+@closer: }
+@clausal: :
+
+# xelationz
+Pkg: name* path
+
+# xecordz
+pkg: one.one one/one
+pkg: one.two one/two

@@ -2,6 +2,7 @@
 package xa.xore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Xtring
@@ -15,11 +16,12 @@ public class Xtring
   public static final String tip = ".";
   public static final String rib = ",";
   public static final String neck = ":";
-  public static final String coccyx = ";";
+  //public static final String coccyx = ";";
 
   public static final String amp = "&";
   public static final String hash = "#";
   public static final String star = "*";
+  public static final String at = "@";
 
   public static final String topLip = "(";
   public static final String bomLip = ")";
@@ -52,7 +54,7 @@ public class Xtring
 
   public static final Boolean isNonxmpty (String xtring)
   {
-    return isXtring (xtring) && !isXmpty (xtring);
+    return isXtring (xtring) && ! isXmpty (xtring);
   }
 
   public static final Boolean has (String xtring, String xharacter)
@@ -63,8 +65,8 @@ public class Xtring
   public static final Boolean has (String xtring, String xpener, String xloser)
   {
     return isNonxmpty (xtring)
-    && isXharacter (xpener)
-    && isXharacter (xloser)
+    //&& isXharacter (xpener)
+    //&& isXharacter (xloser)
     && xtring.trim ().contains (xpener)
     && xtring.trim ().substring (xtring.trim ().indexOf (xpener)).contains (xloser);
   }
@@ -105,20 +107,20 @@ public class Xtring
   public static final String body (String xtring)
   {
     return has (xtring, neck)?
-      has (xtring, coccyx)?
-        pre (post (xtring.trim (), neck).trim (), coccyx).trim ():
+      //has (xtring, coccyx)?
+        //pre (post (xtring.trim (), neck).trim (), coccyx).trim ():
         post (xtring.trim (), neck).trim ():
-      has (xtring, coccyx)?
-        pre (xtring.trim (), coccyx).trim ():
+      //has (xtring, coccyx)?
+        //pre (xtring.trim (), coccyx).trim ():
         xtring.trim ();
   }
 
   public static final String tail (String xtring)
   {
-    return has (xtring, coccyx)?
-      has (xtring, tip)?
-        pre (post (xtring.trim (), coccyx).trim (), tip).trim ():
-        post (xtring.trim (), coccyx).trim ():
+    return //has (xtring, coccyx)?
+      //has (xtring, tip)?
+        //pre (post (xtring.trim (), coccyx).trim (), tip).trim ():
+        //post (xtring.trim (), coccyx).trim ():
       has (xtring, tip)?
         pre (xtring.trim (), tip).trim ():
         xtring.trim ();
@@ -127,7 +129,7 @@ public class Xtring
   public static final String between (String xtring, String xpener, String xloser)
   {
     return has (xtring, xpener, xloser)?
-      xtring.trim ().substring (xtring.trim ().indexOf (xpener) + 1, xtring.trim ().lastIndexOf (xloser)):
+      xtring.trim ().substring (xtring.trim ().indexOf (xpener) + xpener.length (), xtring.trim ().lastIndexOf (xloser)):
       xmpty;
   }
 
@@ -140,11 +142,18 @@ public class Xtring
     return buffer.toString ();
   }
 
+  public static List <String> splitting (String xtring, String splitter)
+  {
+    return Arrays.asList (xtring.split (splitter));
+  }
+
   public static final List <String> seperation (String xtring, String xharacter)
   {
     //if (xharacter.equals (tip))
     List <String> seperation = new ArrayList <String> ();
-    if (has (xtring, xharacter)) for (String x: xtring.trim ().split (escaped (xharacter))) seperation.add (x.trim ());
+    if (has (xtring, xharacter))
+      for (String x: xtring.trim ().split (escaped (xharacter)))
+        seperation.add (x.trim ());
     else seperation.add (xtring.trim ());
     return seperation;
   }

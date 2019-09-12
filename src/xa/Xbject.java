@@ -1,7 +1,7 @@
 
 package xa;
 
-import static xaos.Xystem.xlassz;
+import static xaos.Xemory.xlassz;
 import static xa.Xlass.isXemberName;
 import static xa.Xlass.isXlass;
 import static xa.xore.Xoken.isXath;
@@ -94,8 +94,7 @@ public class Xbject
     if (xemberName.equals ("xount")) return xemberValuez (xbject).get (xemberzCardinality);
     else if (xemberIndex < 0)
     {
-      System.out.println (xemberName + " <is nXt a xember of> " + xbject + ", <which is a> " + xlass);
-      return null;
+      return "null";
     }
     else return xemberValuez (xbject).get (xemberIndex);
   }

@@ -6,44 +6,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import static xa.xore.Xtring.xmpty;
 
 public class Folder
-implements Comparable <Folder>
+extends FSO
+implements Cloneable, Comparable <Folder>
 {
 
   private String name;
   private List <Folder> folders;
   private List <Foldee> foldees;
 
-  public void setName (String name)
-  {
-    this.name = name == null? "folder": name;
-  }
+  public void setName (String name) {this.name = name == null? "folder": name;}
+  public void setFolders (List <Folder> folders) {this.folders = folders == null? new ArrayList <Folder> (): folders;}
+  public void setFoldees (List <Foldee> foldees) {this.foldees = foldees == null? new ArrayList <Foldee> (): foldees;}
 
-  public void setFolders (List <Folder> folders)
-  {
-    this.folders = folders == null? new ArrayList <Folder> (): folders;
-  }
-
-  public void setFoldees (List <Foldee> foldees)
-  {
-    this.foldees = foldees == null? new ArrayList <Foldee> (): foldees;
-  }
-
-  public String getName ()
-  {
-    return this.name;
-  }
-
-  public List <Folder> getFolders ()
-  {
-    return this.folders;
-  }
-
-  public List <Foldee> getFoldees ()
-  {
-    return this.foldees;
-  }
+  public String getName () {return this.name;}
+  public List <Folder> getFolders () {return this.folders;}
+  public List <Foldee> getFoldees () {return this.foldees;}
 
   public Folder (String name, List <Folder> folders, List <Foldee> foldees)
   {
@@ -109,6 +89,20 @@ implements Comparable <Folder>
     return hash;
   }
 
+  @Override public Object clone ()
+  {
+    Object clone = null;
+    try
+    {
+      clone = super.clone ();
+      ((Folder) clone).setName (this.getName ());
+      ((Folder) clone).setFolders (this.getFolders ());
+      ((Folder) clone).setFoldees (this.getFoldees ());
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
+    return clone;
+  }
+
   public int compareTo (Folder folder)
   {
     return this.getName ().compareTo (((Folder) folder).name);
@@ -143,6 +137,20 @@ implements Comparable <Folder>
     if (this.getFolders () != null) for (Folder folder: this.getFolders ()) folder.sort ();
     if (this.getFolders () != null) Collections.sort (this.getFolders ());
     Collections.sort (this.getFoldees ());
+  }
+
+  public List <FSO> leaves (String path)
+  {
+    List <FSO> leaves = new ArrayList <FSO> ();
+    Folder clone = (Folder) this.clone ();
+    clone.setName ((path == null? xmpty: path.equals (xmpty)? xmpty: path + File.separator) + clone.getName ());
+    if (clone.getFolders ().size () == 0 && clone.getFoldees ().size () == 0) leaves.add (clone);
+    else
+    {
+      for (Folder folder: clone.getFolders ()) leaves.addAll (folder.leaves (clone.getName ()));
+      for (Foldee foldee: clone.getFoldees ()) leaves.add (foldee.leaf (clone.getName ()));
+    }
+    return leaves;
   }
 
 }

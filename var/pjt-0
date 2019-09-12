@@ -1,0 +1,10 @@
+
+# xymbol
+@eofMarker: <eof>
+@opener: [
+@closer: ]
+@clausal: :
+
+Pjt: id name
+Db: name*
+Tb: db.name* name*

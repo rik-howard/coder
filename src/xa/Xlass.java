@@ -39,8 +39,7 @@ public class Xlass
   {
     if (xordz == null) return false;
     else for (String xord: xordz)
-      if (isXemberName (xord))
-      ;
+      if (isXemberName (xord)) ;
       else return false;
     return true;
   }

@@ -1,0 +1,12 @@
+# relations
+
+Pkg: name* folder
+Res: pkg.name* name* humble ext
+Pro: pkg.name* name* humble
+Ipr: res.pkg.name* res.name* ipe*
+Fld: res.pkg.name* res.name* name* posh isList isMap dec def eg
+Mtd: pro.pkg.name* pro.name* name* posh dec def eg
+Prm: mtd.pro.pkg.name* mtd.pro.name* mtd.name* name* dec def eg
+Mln: mtd.pro.pkg.name* mtd.pro.name* mtd.name* name* value
+Pln: pro.pkg.name* pro.name* name* value
+Pfd: pro.pkg.name* pro.name* name* dec def

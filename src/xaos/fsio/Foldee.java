@@ -9,43 +9,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import static xa.xore.Xtring.end;
+import static xa.xore.Xtring.xmpty;
 
 public class Foldee
-implements Comparable <Foldee>
+extends FSO
+implements Cloneable, Comparable <Foldee>
 {
 
   private String name;
   private String value;
 
-  public void setName (String name)
-  {
-    this.name = name == null? "foldee": name;
-  }
+  public void setName (String name) {this.name = name == null? "foldee": name;}
+  public void setValue (String value) {this.value = value == null? "value": value;}
+  public void setLinez (List <String> linez) {this.setValue (this.joined (linez, end));}
 
-  public void setValue (String value)
-  {
-    this.value = value == null? "value": value;
-  }
-
-  public void setLinez (List <String> linez)
-  {
-    this.setValue (this.joined (linez, "\n"));
-  }
-
-  public String getName ()
-  {
-    return this.name;
-  }
-
-  public String getValue ()
-  {
-    return this.value;
-  }
-
-  public List <String> getLinez ()
-  {
-    return Arrays.asList (this.getValue ().split ("\n"));
-  }
+  public String getName () {return this.name;}
+  public String getValue () {return this.value;}
+  public List <String> getLinez () {return Arrays.asList (this.getValue ().split (end));}
 
   public Foldee (String name, List <String> linez)
   {
@@ -62,11 +43,11 @@ implements Comparable <Foldee>
   public Foldee (File file)
   throws FileNotFoundException, IOException
   {
-    this (file.getName (), "");
+    this (file.getName (), xmpty);
     StringBuffer buffer = new StringBuffer ();
     BufferedReader reader = new BufferedReader (new FileReader (file));
     while (reader.ready ())
-      buffer.append (reader.readLine ()).append ("\n");
+      buffer.append (reader.readLine ()).append (end);
     reader.close ();
     this.setValue (buffer.toString ().trim ());
   }
@@ -98,16 +79,42 @@ implements Comparable <Foldee>
     return hash;
   }
 
+  @Override
+  public Object clone ()
+  {
+    Object clone = null;
+    try
+    {
+      clone = super.clone ();
+      ((Foldee) clone).setName (this.getName ());
+      ((Foldee) clone).setValue (this.getValue ());
+    }
+    catch (CloneNotSupportedException e) {e.printStackTrace ();}
+    return clone;
+  }
+
   public int compareTo (Foldee foldee)
   {
     return this.getName ().compareTo (foldee.getName ());
   }
 
+  public void store ()
+  throws IOException
+  {
+    this.store (new File (this.getName ()));
+  }
+
   public void store (File file)
   throws IOException
   {
+    assert file.getParent () != null: "the parent of the file, " + file + ", is null";
     if (file.exists ()) assert true;
-    else file.createNewFile ();
+    else if (file.getParentFile ().exists ()) file.createNewFile ();
+    else
+    {
+      file.getParentFile ().mkdirs ();
+      file.createNewFile ();
+    }
     if (file.length () == 0)
     {
       FileWriter writer = new FileWriter (file);
@@ -124,6 +131,13 @@ implements Comparable <Foldee>
       if (buffer.length () == 0) buffer.append (string);
       else buffer.append (seperator).append (string);
     return buffer.toString ();
+  }
+
+  public FSO leaf (String path)
+  {
+    Foldee leaf = (Foldee) this.clone ();
+    leaf.setName ((path == null? xmpty: path.equals (xmpty)? xmpty: path + File.separator) + leaf.getName ());
+    return leaf;
   }
 
 }

@@ -1,0 +1,7 @@
+
+pjt: null my-rdbms
+db: bio
+tb: bio person
+db: geo
+tb: geo continent
+tb: geo subcontinent

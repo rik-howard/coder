@@ -1,0 +1,8 @@
+.
+.               |
+.               | [pjt.name]
+.               |
+. [db:dbz]      | [db.name]:
+.   [tb:db.tbz] |   [tb.name][,]
+.   []          | .
+. []

@@ -1,8 +1,8 @@
 
 package xa.xemplate;
 
-import java.util.Arrays;
 import java.util.List;
+import static xa.xore.Xtring.splitting;
 
 public class Xompiler
 {
@@ -12,7 +12,7 @@ public class Xompiler
     StringBuffer xompilation = new StringBuffer ();
     for (String xoken: xinking)
         xompilation.append (xoken);
-    return Arrays.asList (xompilation.toString ().split ("\\n"));
+    return splitting (xompilation.toString (), "\\n");
   }
 
 }

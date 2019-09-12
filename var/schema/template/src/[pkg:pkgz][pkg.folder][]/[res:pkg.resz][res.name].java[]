@@ -1,0 +1,61 @@
+
+# xemplate
+.                             | package [pkg.name];
+.                             |
+.[ipr:res.iprz]               | import [ipr.ipe];
+.[]                           |
+.                             | public class [res.name]
+.[:res.ext]                   | extends [res.ext]
+.[]                           | implements Cloneable
+.                             | {
+.                             |
+.[fld:res.fldz]               |   private [fld.dec] [fld.name];
+.[]                           |
+.[fld:res.fldz]               |   public void set[fld.posh] ([fld.dec] [fld.name]) {this.[fld.name] = [fld.name] == null? new [fld.def]: [fld.name];}
+.[]                           |
+.[fld:res.fldz]               |   public [fld.dec] [fld.name] () {if (this.[fld.name] == null) this.set[fld.posh] (null); return this.[fld.name];}
+.[]                           |
+.                             |   @Override public int hashCode ()
+.                             |   {
+.                             |     return
+.[fld:res.fldz]               |       this.[fld.name] ().hashCode ()[ +]
+.[]                           |     ;
+.                             |   }
+.                             |
+.                             |   @Override public boolean equals (Object object)
+.                             |   {
+.                             |     if (object == null) return false;
+.                             |     else if (object instanceof [res.name])
+.                             |     {
+.                             |       [res.name] that = ([res.name]) object;
+.                             |       return
+.[fld:res.fldz]               |         this.[fld.name] ().equals (that.[fld.name] ())[ &&]
+.[]                           |       ;
+.                             |     }
+.                             |     else return false;
+.                             |   }
+.                             |
+.                             |   @Override public String toString ()
+.                             |   {
+.                             |     return new StringBuffer ("<")
+.[fld:res.fldz]               |       .append (this.[fld.name] ().toString ())[.append (", ")]
+.[]                           |       .append (">").toString ()
+.                             |     ;
+.                             |   }
+.                             |
+.                             |   @Override public Object clone ()
+.                             |   throws CloneNotSupportedException
+.                             |   {
+.                             |     Object clone = null;
+                             |     try
+                             |     {
+.                             |       clone = super.clone ();
+.[fld:res.fldz]               |       (([res.name]) clone).set[fld.posh] (this.[fld.name] ());
+.[]
+                           |     }
+                             |     catch (CloneNotSupportedException e) {e.printStackTrace ();}
+.                             |     return clone;
+.                             |   }
+.                             |
+.                             | }
+.                             |

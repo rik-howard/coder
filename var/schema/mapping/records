@@ -1,0 +1,725 @@
+# records
+
+pkg: info.lrbh.codable info/lrbh/codable
+pkg: info.lrbh.codable.schema info/lrbh/codable/schema
+pkg: info.lrbh.codable.schema.template info/lrbh/codable/schema/template
+pkg: info.lrbh.codable.schema.template.parsement info/lrbh/codable/schema/template/parsement
+pkg: info.lrbh.codive.schema.template info/lrbh/codive/schema/template
+res: info.lrbh.codable.schema.template Cleanment cleanment null
+res: info.lrbh.codable.schema.template Token token null
+res: info.lrbh.codable.schema.template Parsement parsement null
+res: info.lrbh.codable.schema.template Link link null
+res: info.lrbh.codable.schema.template Compilement compilement null
+res: info.lrbh.codable.schema.template.parsement Constant constant Parsement
+res: info.lrbh.codable.schema.template.parsement Variable variable Parsement
+res: info.lrbh.codable.schema.template.parsement Iteration iteration Parsement
+res: info.lrbh.codable.schema.template.parsement Condition condition Parsement
+res: info.lrbh.codable.schema.template.parsement Alternative alternative Parsement
+res: info.lrbh.codable.schema Symbol symbol null
+res: info.lrbh.codable.schema Relation relation null
+res: info.lrbh.codable.schema Record record null
+res: info.lrbh.codable.schema Function function null
+res: info.lrbh.codable.schema Procedure procedure null
+res: info.lrbh.codable.schema Template template null
+res: info.lrbh.codable.schema Vertex vertex null
+res: info.lrbh.codable Schema schema null
+pro: info.lrbh.codive.schema.template Cleaner cleaner
+pro: info.lrbh.codive.schema.template Tokeniser tokeniser
+pro: info.lrbh.codive.schema.template Parser parser
+pro: info.lrbh.codive.schema.template Linker linker
+pro: info.lrbh.codive.schema.template Compiler compiler
+ipr: info.lrbh.codable.schema.template Parsement java.util.List
+ipr: info.lrbh.codable.schema.template Parsement java.util.ArrayList
+ipr: info.lrbh.codable.schema.template.parsement Constant info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codable.schema.template.parsement Variable info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codable.schema.template.parsement Iteration info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codable.schema.template.parsement Condition info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codable.schema.template.parsement Alternative info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codable.schema Relation java.util.List
+ipr: info.lrbh.codable.schema Relation java.util.ArrayList
+ipr: info.lrbh.codable.schema Record java.util.Map
+ipr: info.lrbh.codable.schema Record java.util.HashMap
+ipr: info.lrbh.codable Schema java.util.List
+ipr: info.lrbh.codable Schema java.util.ArrayList
+ipr: info.lrbh.codable Schema java.util.Map
+ipr: info.lrbh.codable Schema java.util.HashMap
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Symbol
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Relation
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Record
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Function
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Procedure
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Template
+ipr: info.lrbh.codable Schema info.lrbh.codable.schema.Vertex
+ipr: info.lrbh.codive.schema.template Cleaner java.util.Arrays
+ipr: info.lrbh.codive.schema.template Cleaner java.util.List
+ipr: info.lrbh.codive.schema.template Cleaner info.lrbh.codable.schema.template.Cleanment
+ipr: info.lrbh.codive.schema.template Tokeniser java.util.List
+ipr: info.lrbh.codive.schema.template Tokeniser java.util.ArrayList
+ipr: info.lrbh.codive.schema.template Tokeniser info.lrbh.codable.schema.template.Cleanment
+ipr: info.lrbh.codive.schema.template Tokeniser info.lrbh.codable.schema.template.Token
+ipr: info.lrbh.codive.schema.template Parser java.util.List
+ipr: info.lrbh.codive.schema.template Parser java.util.ArrayList
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.Token
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.parsement.Constant
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.parsement.Variable
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.parsement.Iteration
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.parsement.Condition
+ipr: info.lrbh.codive.schema.template Parser info.lrbh.codable.schema.template.parsement.Alternative
+ipr: info.lrbh.codive.schema.template Linker java.util.List
+ipr: info.lrbh.codive.schema.template Linker java.util.ArrayList
+ipr: info.lrbh.codive.schema.template Linker java.util.Map
+ipr: info.lrbh.codive.schema.template Linker java.util.HashMap
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.Record
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.Parsement
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.parsement.Constant
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.parsement.Variable
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.parsement.Iteration
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.parsement.Condition
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.parsement.Alternative
+ipr: info.lrbh.codive.schema.template Linker info.lrbh.codable.schema.template.Link
+ipr: info.lrbh.codive.schema.template Compiler java.util.List
+ipr: info.lrbh.codive.schema.template Compiler java.util.ArrayList
+ipr: info.lrbh.codive.schema.template Compiler info.lrbh.codable.schema.template.Link
+ipr: info.lrbh.codive.schema.template Compiler info.lrbh.codable.schema.template.Compilement
+fld: info.lrbh.codable.schema.template Cleanment string String null null String String_() cleanmentString
+fld: info.lrbh.codable.schema.template Cleanment opener Opener null null String String_() cleanmentOpener
+fld: info.lrbh.codable.schema.template Cleanment closer Closer null null String String_() cleanmentCloser
+fld: info.lrbh.codable.schema.template Token string String null null String String_() tokenString
+fld: info.lrbh.codable.schema.template Token opener Opener null null String String_() tokenOpener
+fld: info.lrbh.codable.schema.template Token closer Closer null null String String_() tokenCloser
+fld: info.lrbh.codable.schema.template Parsement parsementz Parsementz isList null List_<Parsement> ArrayList_<Parsement>_() parsementParsementz
+fld: info.lrbh.codable.schema.template Link value Value null null String String_() linkValue
+fld: info.lrbh.codable.schema.template Compilement value Value null null String String_() compilementValue
+fld: info.lrbh.codable.schema.template.parsement Constant value Value null null String String_() constantValue
+fld: info.lrbh.codable.schema.template.parsement Variable qualifier Qualifier null null String String_() variableQualifier
+fld: info.lrbh.codable.schema.template.parsement Variable identifier Identifier null null String String_() variableIdentifier
+fld: info.lrbh.codable.schema.template.parsement Iteration instance Instance null null String String_() iterationInstance
+fld: info.lrbh.codable.schema.template.parsement Iteration qualifier Qualifier null null String String_() iterationQualifier
+fld: info.lrbh.codable.schema.template.parsement Iteration identifier Identifier null null String String_() iterationIdentifier
+fld: info.lrbh.codable.schema.template.parsement Condition expression Expression null null String String_() conditionExpression
+fld: info.lrbh.codable.schema.template.parsement Alternative expression Expression null null String String_() alternativeExpression
+fld: info.lrbh.codable.schema Symbol name Name null null String String_() symbolName
+fld: info.lrbh.codable.schema Symbol value Value null null String String_() symbolValue
+fld: info.lrbh.codable.schema Relation id Id null null String String_() relationId
+fld: info.lrbh.codable.schema Relation namez Namez isList null List_<String> ArrayList_<String>_() relationNamez
+fld: info.lrbh.codable.schema Record ref Ref null null String String_() recordRef
+fld: info.lrbh.codable.schema Record valuez Valuez null isMap Map_<String,_String> HashMap_<String,_String>_() recordValuez
+fld: info.lrbh.codable.schema Function signature Signature null null String String_() functionSignature
+fld: info.lrbh.codable.schema Function body Body null null String String_() functionBody
+fld: info.lrbh.codable.schema Procedure string String null null String String_() procedureString
+fld: info.lrbh.codable.schema Template string String null null String String_() templateString
+fld: info.lrbh.codable.schema Vertex string String null null String String_() vertexString
+fld: info.lrbh.codable Schema symbolz Symbolz null isMap Map_<String,_Symbol> HashMap_<String,_Symbol>_() schemaSymbolz
+fld: info.lrbh.codable Schema relationz Relationz null isMap Map_<String,_Relation> HashMap_<String,_Relation>_() schemaRelationz
+fld: info.lrbh.codable Schema recordz Recordz null isMap Map_<String,_Record> HashMap_<String,_Record>_() schemaRecordz
+fld: info.lrbh.codable Schema functionz Functionz null isMap Map_<String,_Function> HashMap_<String,_Function>_() schemaFunctionz
+fld: info.lrbh.codable Schema procedure Procedure null null Procedure Procedure_() schemaProcedure
+fld: info.lrbh.codable Schema template Template null null Template Template_() schemaTemplate
+fld: info.lrbh.codable Schema vertex Vertex null null Vertex Vertex_() schemaVertex
+fld: info.lrbh.codable Schema keyz Keyz isList null List_<String> ArrayList_<String>_() schemaKeyz
+mtd: info.lrbh.codive.schema.template Cleaner cleaning Cleaning Cleanment Cleanment_() cleanerCleaning
+mtd: info.lrbh.codive.schema.template Tokeniser tokenisation Tokenisation List_<Token> ArrayList_<Token>_() tokeniserTokenisation
+mtd: info.lrbh.codive.schema.template Parser parsing Parsing Parsement Parsement_() parserParsing
+mtd: info.lrbh.codive.schema.template Linker linking Linking List_<Link> ArrayList_<Link>_() linkerLinking
+mtd: info.lrbh.codive.schema.template Compiler compilation Compilation List_<Compilement> ArrayList_<Compilement>_() compilerCompilation
+prm: info.lrbh.codive.schema.template Cleaner cleaning cleanee String String_() cleanerCleanee
+prm: info.lrbh.codive.schema.template Cleaner cleaning opener String String_() cleanerOpener
+prm: info.lrbh.codive.schema.template Cleaner cleaning closer String String_() cleanerCloser
+prm: info.lrbh.codive.schema.template Cleaner cleaning margin String String_() cleanerMargin
+prm: info.lrbh.codive.schema.template Tokeniser tokenisation cleanment Cleanment Cleanment_() tokeniserCleanment
+prm: info.lrbh.codive.schema.template Parser parsing tokenz List_<Token> ArrayList_<Token>_() parserTokenz
+prm: info.lrbh.codive.schema.template Linker linking parsement Parsement Parsement_() linkerParsement
+prm: info.lrbh.codive.schema.template Linker linking keyz List_<String> ArrayList_<String>_() linkerKeyz
+prm: info.lrbh.codive.schema.template Linker linking recordz Map_<String,_Record> HashMap_<String,_Record>_() linkerRecordz
+prm: info.lrbh.codive.schema.template Compiler compilation linkz List_<Link> ArrayList_<Link>_() compilerLinkz
+prm: info.lrbh.codive.schema.template Compiler compilation eofMarker String String_() compilerEofMarker
+mln: info.lrbh.codive.schema.template Cleaner cleaning 1 Cleanment_cleanment_=_new_Cleanment_();
+mln: info.lrbh.codive.schema.template Cleaner cleaning 2 if_(margin_==_null)
+mln: info.lrbh.codive.schema.template Cleaner cleaning 3 {
+mln: info.lrbh.codive.schema.template Cleaner cleaning 4 __cleanment.setString_(cleanee);
+mln: info.lrbh.codive.schema.template Cleaner cleaning 5 __cleanment.setOpener_(opener);
+mln: info.lrbh.codive.schema.template Cleaner cleaning 6 __cleanment.setCloser_(closer);
+mln: info.lrbh.codive.schema.template Cleaner cleaning 7 }
+mln: info.lrbh.codive.schema.template Cleaner cleaning 8 else
+mln: info.lrbh.codive.schema.template Cleaner cleaning 9 {
+mln: info.lrbh.codive.schema.template Cleaner cleaning 10 __StringBuffer_buffer_=_new_StringBuffer_();
+mln: info.lrbh.codive.schema.template Cleaner cleaning 11 __for_(String_string@1_cleanee.split_(escaped_("\n")))
+mln: info.lrbh.codive.schema.template Cleaner cleaning 12 ____if_(buffer.length_()_==_0)_buffer.append_(unmargined_(string,_margin));
+mln: info.lrbh.codive.schema.template Cleaner cleaning 13 ____else_buffer.append_("\n").append_(unmargined_(string,_margin));
+mln: info.lrbh.codive.schema.template Cleaner cleaning 14 __cleanment.setString_(buffer.toString_());
+mln: info.lrbh.codive.schema.template Cleaner cleaning 15 __cleanment.setOpener_(opener);
+mln: info.lrbh.codive.schema.template Cleaner cleaning 16 __cleanment.setCloser_(closer);
+mln: info.lrbh.codive.schema.template Cleaner cleaning 17 }
+mln: info.lrbh.codive.schema.template Cleaner cleaning 18 return_cleanment;
+mln: info.lrbh.codive.schema.template Tokeniser tokenisation 1 if_(idsTokenisability_(cleanment))
+mln: info.lrbh.codive.schema.template Tokeniser tokenisation 2 __if_(idsInitialNativity_(cleanment))_return_union_(nativ_(cleanment),_tokenisation_(postNative_(cleanment)));
+mln: info.lrbh.codive.schema.template Tokeniser tokenisation 3 __else_if_(idsMedialNativity_(cleanment))_return_union_(foreign_(cleanment),_tokenisation_(postForeign_(cleanment)));
+mln: info.lrbh.codive.schema.template Tokeniser tokenisation 4 __else_return_union_(finalToken_(cleanment),_null);
+mln: info.lrbh.codive.schema.template Tokeniser tokenisation 5 else_return_union_(null,_null);
+mln: info.lrbh.codive.schema.template Parser parsing 1 Parsement_parsement_=_new_Parsement_();
+mln: info.lrbh.codive.schema.template Parser parsing 2 parsement.setParsementz_(parsementz_(tokenz));
+mln: info.lrbh.codive.schema.template Parser parsing 3 return_parsement;
+mln: info.lrbh.codive.schema.template Linker linking 1 context_=_new_HashMap_<String,_Record>_();
+mln: info.lrbh.codive.schema.template Linker linking 2 for_(Record_record@1_recordz.values_())
+mln: info.lrbh.codive.schema.template Linker linking 3 __if_(idsStatic_(record))
+mln: info.lrbh.codive.schema.template Linker linking 4 ____context.put_(record.ref_(),_record);
+mln: info.lrbh.codive.schema.template Linker linking 5 return_linking_(parsement.parsementz_(),_keyz,_recordz);
+mln: info.lrbh.codive.schema.template Compiler compilation 1 if_(idsCompilability_(linkz))
+mln: info.lrbh.codive.schema.template Compiler compilation 2 __return_union
+mln: info.lrbh.codive.schema.template Compiler compilation 3 __(
+mln: info.lrbh.codive.schema.template Compiler compilation 4 ____compilement_(first_(linkz,_eofMarker)),
+mln: info.lrbh.codive.schema.template Compiler compilation 5 ____compilation_(rest_(linkz,_eofMarker),_eofMarker)
+mln: info.lrbh.codive.schema.template Compiler compilation 6 __);
+mln: info.lrbh.codive.schema.template Compiler compilation 7 else_return_union_(null,_null);
+pln: info.lrbh.codive.schema.template Cleaner 1 public_static_final_String_escaped_(String_string)
+pln: info.lrbh.codive.schema.template Cleaner 2 {
+pln: info.lrbh.codive.schema.template Cleaner 3 __StringBuffer_buffer_=_new_StringBuffer_();
+pln: info.lrbh.codive.schema.template Cleaner 4 __List_<String>_escapable_=_Arrays.asList_("(",_")",_"{",_"}",_"[",_"]",_"^",_"$",_"\n",_"\r",_"\t",_"|");
+pln: info.lrbh.codive.schema.template Cleaner 5 __for_(Integer_i_=_0;_i_<_string.length_();_i++)
+pln: info.lrbh.codive.schema.template Cleaner 6 __{
+pln: info.lrbh.codive.schema.template Cleaner 7 ____String_s_=_string.substring_(i,_i_+_1);
+pln: info.lrbh.codive.schema.template Cleaner 8 ____if_(escapable.contains_(s))_buffer.append_("\\").append_(s);
+pln: info.lrbh.codive.schema.template Cleaner 9 ____else_buffer.append_(s);
+pln: info.lrbh.codive.schema.template Cleaner 10 __}
+pln: info.lrbh.codive.schema.template Cleaner 11 __return_buffer.toString_();
+pln: info.lrbh.codive.schema.template Cleaner 12 }
+pln: info.lrbh.codive.schema.template Cleaner 13 _
+pln: info.lrbh.codive.schema.template Cleaner 14 private_static_final_String_unmargined_(String_string,_String_margin)
+pln: info.lrbh.codive.schema.template Cleaner 15 {
+pln: info.lrbh.codive.schema.template Cleaner 16 __return_string.trim_().replaceFirst_("\\_*"_+_escaped_(margin)_+_"\\_?",_"");
+pln: info.lrbh.codive.schema.template Cleaner 17 }
+pln: info.lrbh.codive.schema.template Tokeniser 1 private_static_final_Boolean_idsTokenisability_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 2 {
+pln: info.lrbh.codive.schema.template Tokeniser 3 __return_cleanment.string_().length_()_>_0;
+pln: info.lrbh.codive.schema.template Tokeniser 4 }
+pln: info.lrbh.codive.schema.template Tokeniser 5 _
+pln: info.lrbh.codive.schema.template Tokeniser 6 private_static_final_Boolean_idsInitialNativity_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 7 {
+pln: info.lrbh.codive.schema.template Tokeniser 8 __return_cleanment.string_().startsWith_(cleanment.opener_())
+pln: info.lrbh.codive.schema.template Tokeniser 9 __&&_cleanment.string_().indexOf_(cleanment.closer_())_>=_cleanment.opener_().length_();
+pln: info.lrbh.codive.schema.template Tokeniser 10 }
+pln: info.lrbh.codive.schema.template Tokeniser 11 _
+pln: info.lrbh.codive.schema.template Tokeniser 12 private_static_final_Boolean_idsMedialNativity_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 13 {
+pln: info.lrbh.codive.schema.template Tokeniser 14 __return_cleanment.string_().indexOf_(cleanment.opener_())_>_0
+pln: info.lrbh.codive.schema.template Tokeniser 15 __&&_cleanment.string_().indexOf_(cleanment.closer_())_>_cleanment.string_().indexOf_(cleanment.opener_());
+pln: info.lrbh.codive.schema.template Tokeniser 16 }
+pln: info.lrbh.codive.schema.template Tokeniser 17 _
+pln: info.lrbh.codive.schema.template Tokeniser 18 private_static_final_Cleanment_postNative_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 19 {
+pln: info.lrbh.codive.schema.template Tokeniser 20 __cleanment.setString
+pln: info.lrbh.codive.schema.template Tokeniser 21 __(
+pln: info.lrbh.codive.schema.template Tokeniser 22 ____cleanment.string_().substring
+pln: info.lrbh.codive.schema.template Tokeniser 23 ____(
+pln: info.lrbh.codive.schema.template Tokeniser 24 ______cleanment.string_().indexOf_(cleanment.closer_())
+pln: info.lrbh.codive.schema.template Tokeniser 25 ______+_cleanment.closer_().length_()
+pln: info.lrbh.codive.schema.template Tokeniser 26 ____)
+pln: info.lrbh.codive.schema.template Tokeniser 27 __);
+pln: info.lrbh.codive.schema.template Tokeniser 28 __Cleanment_postNative_=_new_Cleanment_();
+pln: info.lrbh.codive.schema.template Tokeniser 29 __return_postNative;
+pln: info.lrbh.codive.schema.template Tokeniser 30 }
+pln: info.lrbh.codive.schema.template Tokeniser 31 _
+pln: info.lrbh.codive.schema.template Tokeniser 32 private_static_final_Cleanment_postForeign_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 33 {
+pln: info.lrbh.codive.schema.template Tokeniser 34 __cleanment.setString
+pln: info.lrbh.codive.schema.template Tokeniser 35 __(
+pln: info.lrbh.codive.schema.template Tokeniser 36 ____cleanment.string_().substring
+pln: info.lrbh.codive.schema.template Tokeniser 37 ____(
+pln: info.lrbh.codive.schema.template Tokeniser 38 ______cleanment.string_().indexOf_(cleanment.opener_())
+pln: info.lrbh.codive.schema.template Tokeniser 39 ____)
+pln: info.lrbh.codive.schema.template Tokeniser 40 __);
+pln: info.lrbh.codive.schema.template Tokeniser 41 __Cleanment_postNative_=_new_Cleanment_();
+pln: info.lrbh.codive.schema.template Tokeniser 42 __return_postNative;
+pln: info.lrbh.codive.schema.template Tokeniser 43 }
+pln: info.lrbh.codive.schema.template Tokeniser 44 _
+pln: info.lrbh.codive.schema.template Tokeniser 45 private_static_final_Token_nativ_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 46 {
+pln: info.lrbh.codive.schema.template Tokeniser 47 __Token_token_=_new_Token_();
+pln: info.lrbh.codive.schema.template Tokeniser 48 __token.setString
+pln: info.lrbh.codive.schema.template Tokeniser 49 __(
+pln: info.lrbh.codive.schema.template Tokeniser 50 ____cleanment.string_().substring
+pln: info.lrbh.codive.schema.template Tokeniser 51 ____(
+pln: info.lrbh.codive.schema.template Tokeniser 52 ______0,
+pln: info.lrbh.codive.schema.template Tokeniser 53 ______cleanment.string_().indexOf_(cleanment.closer_())
+pln: info.lrbh.codive.schema.template Tokeniser 54 ______+_cleanment.closer_().length_()
+pln: info.lrbh.codive.schema.template Tokeniser 55 ____)
+pln: info.lrbh.codive.schema.template Tokeniser 56 __);
+pln: info.lrbh.codive.schema.template Tokeniser 57 __token.setOpener_(cleanment.opener_());
+pln: info.lrbh.codive.schema.template Tokeniser 58 __token.setCloser_(cleanment.closer_());
+pln: info.lrbh.codive.schema.template Tokeniser 59 __return_token;
+pln: info.lrbh.codive.schema.template Tokeniser 60 }
+pln: info.lrbh.codive.schema.template Tokeniser 61 _
+pln: info.lrbh.codive.schema.template Tokeniser 62 private_static_final_Token_foreign_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 63 {
+pln: info.lrbh.codive.schema.template Tokeniser 64 __Token_token_=_new_Token_();
+pln: info.lrbh.codive.schema.template Tokeniser 65 __token.setString
+pln: info.lrbh.codive.schema.template Tokeniser 66 __(
+pln: info.lrbh.codive.schema.template Tokeniser 67 ____cleanment.string_().substring
+pln: info.lrbh.codive.schema.template Tokeniser 68 ____(
+pln: info.lrbh.codive.schema.template Tokeniser 69 ______0,
+pln: info.lrbh.codive.schema.template Tokeniser 70 ______cleanment.string_().indexOf_(cleanment.opener_())
+pln: info.lrbh.codive.schema.template Tokeniser 71 ____)
+pln: info.lrbh.codive.schema.template Tokeniser 72 __);
+pln: info.lrbh.codive.schema.template Tokeniser 73 __token.setOpener_(cleanment.opener_());
+pln: info.lrbh.codive.schema.template Tokeniser 74 __token.setCloser_(cleanment.closer_());
+pln: info.lrbh.codive.schema.template Tokeniser 75 __return_token;
+pln: info.lrbh.codive.schema.template Tokeniser 76 }
+pln: info.lrbh.codive.schema.template Tokeniser 77 _
+pln: info.lrbh.codive.schema.template Tokeniser 78 private_static_final_Token_finalToken_(Cleanment_cleanment)
+pln: info.lrbh.codive.schema.template Tokeniser 79 {
+pln: info.lrbh.codive.schema.template Tokeniser 80 __Token_token_=_new_Token_();
+pln: info.lrbh.codive.schema.template Tokeniser 81 __token.setString_(cleanment.string_());
+pln: info.lrbh.codive.schema.template Tokeniser 82 __token.setOpener_(cleanment.opener_());
+pln: info.lrbh.codive.schema.template Tokeniser 83 __token.setCloser_(cleanment.closer_());
+pln: info.lrbh.codive.schema.template Tokeniser 84 __return_token;
+pln: info.lrbh.codive.schema.template Tokeniser 85 }
+pln: info.lrbh.codive.schema.template Tokeniser 86 _
+pln: info.lrbh.codive.schema.template Tokeniser 87 private_static_final_List_<Token>_union_(Token_token,_List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Tokeniser 88 {
+pln: info.lrbh.codive.schema.template Tokeniser 89 __List_<Token>_union_=_new_ArrayList_<Token>_();
+pln: info.lrbh.codive.schema.template Tokeniser 90 __if_(token_!=_null)_union.add_(token);
+pln: info.lrbh.codive.schema.template Tokeniser 91 __if_(tokenz_!=_null)_union.addAll_(tokenz);
+pln: info.lrbh.codive.schema.template Tokeniser 92 __return_union;
+pln: info.lrbh.codive.schema.template Tokeniser 93 }
+pln: info.lrbh.codive.schema.template Parser 1 private_static_final_Boolean_idsParsibility_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 2 {
+pln: info.lrbh.codive.schema.template Parser 3 __return_tokenz.size_()_>_0;
+pln: info.lrbh.codive.schema.template Parser 4 }
+pln: info.lrbh.codive.schema.template Parser 5 _
+pln: info.lrbh.codive.schema.template Parser 6 private_static_final_Boolean_idsConstant_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 7 {
+pln: info.lrbh.codive.schema.template Parser 8 __return_!_token.string_().startsWith_(token.opener_())
+pln: info.lrbh.codive.schema.template Parser 9 __||_!_token.string_().endsWith_(token.closer_());
+pln: info.lrbh.codive.schema.template Parser 10 }
+pln: info.lrbh.codive.schema.template Parser 11 _
+pln: info.lrbh.codive.schema.template Parser 12 private_static_final_Boolean_idsVariable_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 13 {
+pln: info.lrbh.codive.schema.template Parser 14 __return_!_idsConstant_(token)
+pln: info.lrbh.codive.schema.template Parser 15 __&&_interior_(token).matches_("@2");
+pln: info.lrbh.codive.schema.template Parser 16 }
+pln: info.lrbh.codive.schema.template Parser 17 _
+pln: info.lrbh.codive.schema.template Parser 18 private_static_final_Boolean_idsIteration_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 19 {
+pln: info.lrbh.codive.schema.template Parser 20 __return_!_idsConstant_(token)
+pln: info.lrbh.codive.schema.template Parser 21 __&&_interior_(token).matches_("@3");
+pln: info.lrbh.codive.schema.template Parser 22 }
+pln: info.lrbh.codive.schema.template Parser 23 _
+pln: info.lrbh.codive.schema.template Parser 24 private_static_final_Boolean_idsCondition_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 25 {
+pln: info.lrbh.codive.schema.template Parser 26 __return_!_idsConstant_(token)
+pln: info.lrbh.codive.schema.template Parser 27 __&&_interior_(token).matches_("@4");
+pln: info.lrbh.codive.schema.template Parser 28 }
+pln: info.lrbh.codive.schema.template Parser 29 _
+pln: info.lrbh.codive.schema.template Parser 30 private_static_final_Boolean_idsAlternative_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 31 {
+pln: info.lrbh.codive.schema.template Parser 32 __return_!_idsConstant_(token)
+pln: info.lrbh.codive.schema.template Parser 33 __&&_interior_(token).matches_("@5");
+pln: info.lrbh.codive.schema.template Parser 34 }
+pln: info.lrbh.codive.schema.template Parser 35 _
+pln: info.lrbh.codive.schema.template Parser 36 private_static_final_Boolean_idsEnding_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 37 {
+pln: info.lrbh.codive.schema.template Parser 38 __return_!_idsConstant_(token)
+pln: info.lrbh.codive.schema.template Parser 39 __&&_interior_(token).matches_("^$");
+pln: info.lrbh.codive.schema.template Parser 40 }
+pln: info.lrbh.codive.schema.template Parser 41 _
+pln: info.lrbh.codive.schema.template Parser 42 private_static_final_String_interior_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 43 {
+pln: info.lrbh.codive.schema.template Parser 44 __return_token.string_().substring
+pln: info.lrbh.codive.schema.template Parser 45 __(
+pln: info.lrbh.codive.schema.template Parser 46 ____token.opener_().length_(),
+pln: info.lrbh.codive.schema.template Parser 47 ____token.string_().length_()
+pln: info.lrbh.codive.schema.template Parser 48 ____-_token.closer_().length_()
+pln: info.lrbh.codive.schema.template Parser 49 __);
+pln: info.lrbh.codive.schema.template Parser 50 }
+pln: info.lrbh.codive.schema.template Parser 51 _
+pln: info.lrbh.codive.schema.template Parser 52 private_static_final_Token_first_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 53 {
+pln: info.lrbh.codive.schema.template Parser 54 __return_tokenz.get_(0);
+pln: info.lrbh.codive.schema.template Parser 55 }
+pln: info.lrbh.codive.schema.template Parser 56 _
+pln: info.lrbh.codive.schema.template Parser 57 private_static_final_List_<Token>_rest_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 58 {
+pln: info.lrbh.codive.schema.template Parser 59 __List_<Token>_tz_=_new_ArrayList_<Token>_();
+pln: info.lrbh.codive.schema.template Parser 60 __if_(tokenz.size_()_>_1)
+pln: info.lrbh.codive.schema.template Parser 61 ____for_(Integer_i_=_1;_i_<_tokenz.size_();_i++)
+pln: info.lrbh.codive.schema.template Parser 62 ______tz.add_(tokenz.get_(i));
+pln: info.lrbh.codive.schema.template Parser 63 __return_tz;
+pln: info.lrbh.codive.schema.template Parser 64 }
+pln: info.lrbh.codive.schema.template Parser 65 _
+pln: info.lrbh.codive.schema.template Parser 66 private_static_final_List_<Token>_iterateez_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 67 {
+pln: info.lrbh.codive.schema.template Parser 68 __List_<Token>_tz_=_new_ArrayList_<Token>_();
+pln: info.lrbh.codive.schema.template Parser 69 __Boolean_foundEnding_=_false;
+pln: info.lrbh.codive.schema.template Parser 70 __for_(Token_token@1_tokenz)
+pln: info.lrbh.codive.schema.template Parser 71 ____if_(foundEnding)_;
+pln: info.lrbh.codive.schema.template Parser 72 ____else_if_(idsEnding_(token))_foundEnding_=_true;
+pln: info.lrbh.codive.schema.template Parser 73 ____else_tz.add_(token);
+pln: info.lrbh.codive.schema.template Parser 74 __return_tz;
+pln: info.lrbh.codive.schema.template Parser 75 }
+pln: info.lrbh.codive.schema.template Parser 76 _
+pln: info.lrbh.codive.schema.template Parser 77 private_static_final_List_<Token>_postIterateez_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 78 {
+pln: info.lrbh.codive.schema.template Parser 79 __List_<Token>_tz_=_new_ArrayList_<Token>_();
+pln: info.lrbh.codive.schema.template Parser 80 __Boolean_foundEnding_=_false;
+pln: info.lrbh.codive.schema.template Parser 81 __for_(Token_token@1_tokenz)
+pln: info.lrbh.codive.schema.template Parser 82 ____if_(foundEnding)_tz.add_(token);
+pln: info.lrbh.codive.schema.template Parser 83 ____else_if_(idsEnding_(token))_foundEnding_=_true;
+pln: info.lrbh.codive.schema.template Parser 84 ____else_;
+pln: info.lrbh.codive.schema.template Parser 85 __return_tz;
+pln: info.lrbh.codive.schema.template Parser 86 }
+pln: info.lrbh.codive.schema.template Parser 87 _
+pln: info.lrbh.codive.schema.template Parser 88 private_static_final_List_<Token>_conditeez_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 89 {
+pln: info.lrbh.codive.schema.template Parser 90 __List_<Token>_tz_=_new_ArrayList_<Token>_();
+pln: info.lrbh.codive.schema.template Parser 91 __Boolean_foundEnding_=_false;
+pln: info.lrbh.codive.schema.template Parser 92 __for_(Token_token@1_tokenz)
+pln: info.lrbh.codive.schema.template Parser 93 ____if_(foundEnding)_;
+pln: info.lrbh.codive.schema.template Parser 94 ____else_if_(idsEnding_(token)_||_idsAlternative_(token))_foundEnding_=_true;
+pln: info.lrbh.codive.schema.template Parser 95 ____else_tz.add_(token);
+pln: info.lrbh.codive.schema.template Parser 96 __return_tz;
+pln: info.lrbh.codive.schema.template Parser 97 }
+pln: info.lrbh.codive.schema.template Parser 98 _
+pln: info.lrbh.codive.schema.template Parser 99 private_static_final_List_<Token>_postconditeez_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 100 {
+pln: info.lrbh.codive.schema.template Parser 101 __List_<Token>_tz_=_new_ArrayList_<Token>_();
+pln: info.lrbh.codive.schema.template Parser 102 __Boolean_foundEnding_=_false;
+pln: info.lrbh.codive.schema.template Parser 103 __for_(Token_token@1_tokenz)
+pln: info.lrbh.codive.schema.template Parser 104 ____if_(foundEnding)_tz.add_(token);
+pln: info.lrbh.codive.schema.template Parser 105 ____else_if_(idsEnding_(token))_foundEnding_=_true;
+pln: info.lrbh.codive.schema.template Parser 106 ____else_if_(idsAlternative_(token))_{tz.add_(token);_foundEnding_=_true;}
+pln: info.lrbh.codive.schema.template Parser 107 ____else_;
+pln: info.lrbh.codive.schema.template Parser 108 __return_tz;
+pln: info.lrbh.codive.schema.template Parser 109 }
+pln: info.lrbh.codive.schema.template Parser 110 _
+pln: info.lrbh.codive.schema.template Parser 111 private_static_final_Constant_constant_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 112 {
+pln: info.lrbh.codive.schema.template Parser 113 __Constant_constant_=_new_Constant_();
+pln: info.lrbh.codive.schema.template Parser 114 __constant.setValue_(token.string_());
+pln: info.lrbh.codive.schema.template Parser 115 __return_constant;
+pln: info.lrbh.codive.schema.template Parser 116 }
+pln: info.lrbh.codive.schema.template Parser 117 _
+pln: info.lrbh.codive.schema.template Parser 118 private_static_final_Variable_variable_(Token_token)
+pln: info.lrbh.codive.schema.template Parser 119 {
+pln: info.lrbh.codive.schema.template Parser 120 __Variable_variable_=_new_Variable_();
+pln: info.lrbh.codive.schema.template Parser 121 __variable.setQualifier_(interior_(token).split_("\\.")_[0]);
+pln: info.lrbh.codive.schema.template Parser 122 __variable.setIdentifier_(interior_(token).split_("\\.")_[1]);
+pln: info.lrbh.codive.schema.template Parser 123 __return_variable;
+pln: info.lrbh.codive.schema.template Parser 124 }
+pln: info.lrbh.codive.schema.template Parser 125 _
+pln: info.lrbh.codive.schema.template Parser 126 private_static_final_Iteration_iteration_(Token_token,_List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 127 {
+pln: info.lrbh.codive.schema.template Parser 128 __String_instance_=_interior_(token).split_("@1")_[0];
+pln: info.lrbh.codive.schema.template Parser 129 __String_list_=_interior_(token).split_("@1")_[1];
+pln: info.lrbh.codive.schema.template Parser 130 __Boolean_hasDot_=_list.indexOf_(".")_>_0;
+pln: info.lrbh.codive.schema.template Parser 131 __String_qualifier_=_hasDot?_list.split_("\\.")_[0]@1_"";
+pln: info.lrbh.codive.schema.template Parser 132 __String_identifier_=_hasDot?_list.split_("\\.")_[1]@1_list;
+pln: info.lrbh.codive.schema.template Parser 133 __Iteration_iteration_=_new_Iteration_();
+pln: info.lrbh.codive.schema.template Parser 134 __iteration.setInstance_(instance);
+pln: info.lrbh.codive.schema.template Parser 135 __iteration.setQualifier_(qualifier);
+pln: info.lrbh.codive.schema.template Parser 136 __iteration.setIdentifier_(identifier);
+pln: info.lrbh.codive.schema.template Parser 137 __iteration.setParsementz_(parsementz_(tokenz));
+pln: info.lrbh.codive.schema.template Parser 138 __return_iteration;
+pln: info.lrbh.codive.schema.template Parser 139 }
+pln: info.lrbh.codive.schema.template Parser 140 _
+pln: info.lrbh.codive.schema.template Parser 141 private_static_final_Condition_condition_(Token_token,_List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 142 {
+pln: info.lrbh.codive.schema.template Parser 143 __Condition_condition_=_new_Condition_();
+pln: info.lrbh.codive.schema.template Parser 144 __condition.setExpression_(interior_(token));
+pln: info.lrbh.codive.schema.template Parser 145 __condition.setParsementz_(parsementz_(tokenz));
+pln: info.lrbh.codive.schema.template Parser 146 __return_condition;
+pln: info.lrbh.codive.schema.template Parser 147 }
+pln: info.lrbh.codive.schema.template Parser 148 _
+pln: info.lrbh.codive.schema.template Parser 149 private_static_final_Alternative_alternative_(Token_token,_List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 150 {
+pln: info.lrbh.codive.schema.template Parser 151 __Alternative_alternative_=_new_Alternative_();
+pln: info.lrbh.codive.schema.template Parser 152 __alternative.setParsementz_(parsementz_(tokenz));
+pln: info.lrbh.codive.schema.template Parser 153 __return_alternative;
+pln: info.lrbh.codive.schema.template Parser 154 }
+pln: info.lrbh.codive.schema.template Parser 155 _
+pln: info.lrbh.codive.schema.template Parser 156 private_static_List_<Parsement>_parsementz_(List_<Token>_tokenz)
+pln: info.lrbh.codive.schema.template Parser 157 {
+pln: info.lrbh.codive.schema.template Parser 158 __if_(idsParsibility_(tokenz))
+pln: info.lrbh.codive.schema.template Parser 159 ____if_(idsConstant_(first_(tokenz)))
+pln: info.lrbh.codive.schema.template Parser 160 ______return_union_(constant_(first_(tokenz)),_parsementz_(rest_(tokenz)));
+pln: info.lrbh.codive.schema.template Parser 161 ____else_if_(idsVariable_(first_(tokenz)))
+pln: info.lrbh.codive.schema.template Parser 162 ______return_union_(variable_(first_(tokenz)),_parsementz_(rest_(tokenz)));
+pln: info.lrbh.codive.schema.template Parser 163 ____else_if_(idsIteration_(first_(tokenz)))
+pln: info.lrbh.codive.schema.template Parser 164 ______return_union_(iteration_(first_(tokenz),_iterateez_(tokenz)),_parsementz_(postIterateez_(tokenz)));
+pln: info.lrbh.codive.schema.template Parser 165 ____else_if_(idsCondition_(first_(tokenz)))
+pln: info.lrbh.codive.schema.template Parser 166 ______return_union_(condition_(first_(tokenz),_conditeez_(tokenz)),_parsementz_(postconditeez_(tokenz)));
+pln: info.lrbh.codive.schema.template Parser 167 ____else_if_(idsAlternative_(first_(tokenz)))
+pln: info.lrbh.codive.schema.template Parser 168 ______return_union_(alternative_(first_(tokenz),_conditeez_(tokenz)),_parsementz_(postconditeez_(tokenz)));
+pln: info.lrbh.codive.schema.template Parser 169 ____else_return_union_(null,_null);
+pln: info.lrbh.codive.schema.template Parser 170 __else_return_union_(null,_null);
+pln: info.lrbh.codive.schema.template Parser 171 }
+pln: info.lrbh.codive.schema.template Parser 172 _
+pln: info.lrbh.codive.schema.template Parser 173 private_static_List_<Parsement>_union_(Parsement_parsement,_List_<Parsement>_parsementz)
+pln: info.lrbh.codive.schema.template Parser 174 {
+pln: info.lrbh.codive.schema.template Parser 175 __List_<Parsement>_union_=_new_ArrayList_<Parsement>_();
+pln: info.lrbh.codive.schema.template Parser 176 __if_(parsement_!=_null)_union.add_(parsement);
+pln: info.lrbh.codive.schema.template Parser 177 __if_(parsementz_!=_null)_union.addAll_(parsementz);
+pln: info.lrbh.codive.schema.template Parser 178 __return_union;
+pln: info.lrbh.codive.schema.template Parser 179 }
+pln: info.lrbh.codive.schema.template Linker 1 private_static_final_Boolean_idsStatic_(Record_record)
+pln: info.lrbh.codive.schema.template Linker 2 {
+pln: info.lrbh.codive.schema.template Linker 3 __Boolean_statik_=_true;
+pln: info.lrbh.codive.schema.template Linker 4 __for_(String_name@1_record.valuez_().keySet_())
+pln: info.lrbh.codive.schema.template Linker 5 ____if_(name.endsWith_("*"))
+pln: info.lrbh.codive.schema.template Linker 6 ______statik_=_false;
+pln: info.lrbh.codive.schema.template Linker 7 __return_statik;
+pln: info.lrbh.codive.schema.template Linker 8 }
+pln: info.lrbh.codive.schema.template Linker 9 _
+pln: info.lrbh.codive.schema.template Linker 10 private_static_final_Boolean_idsLinkability_(List_<Parsement>_parsementz)
+pln: info.lrbh.codive.schema.template Linker 11 {
+pln: info.lrbh.codive.schema.template Linker 12 __return_parsementz.size_()_>_0;
+pln: info.lrbh.codive.schema.template Linker 13 }
+pln: info.lrbh.codive.schema.template Linker 14 _
+pln: info.lrbh.codive.schema.template Linker 15 private_static_final_Boolean_idsConstant_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 16 {
+pln: info.lrbh.codive.schema.template Linker 17 __return_parsement_instanceof_Constant;
+pln: info.lrbh.codive.schema.template Linker 18 }
+pln: info.lrbh.codive.schema.template Linker 19 _
+pln: info.lrbh.codive.schema.template Linker 20 private_static_final_Boolean_idsVariable_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 21 {
+pln: info.lrbh.codive.schema.template Linker 22 __return_parsement_instanceof_Variable;
+pln: info.lrbh.codive.schema.template Linker 23 }
+pln: info.lrbh.codive.schema.template Linker 24 _
+pln: info.lrbh.codive.schema.template Linker 25 private_static_final_Boolean_idsIteration_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 26 {
+pln: info.lrbh.codive.schema.template Linker 27 __return_parsement_instanceof_Iteration;
+pln: info.lrbh.codive.schema.template Linker 28 }
+pln: info.lrbh.codive.schema.template Linker 29 _
+pln: info.lrbh.codive.schema.template Linker 30 private_static_final_Boolean_idsCondition_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 31 {
+pln: info.lrbh.codive.schema.template Linker 32 __return_parsement_instanceof_Iteration;
+pln: info.lrbh.codive.schema.template Linker 33 }
+pln: info.lrbh.codive.schema.template Linker 34 _
+pln: info.lrbh.codive.schema.template Linker 35 private_static_final_Boolean_idsAlternative_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 36 {
+pln: info.lrbh.codive.schema.template Linker 37 __return_parsement_instanceof_Alternative;
+pln: info.lrbh.codive.schema.template Linker 38 }
+pln: info.lrbh.codive.schema.template Linker 39 _
+pln: info.lrbh.codive.schema.template Linker 40 private_static_final_Boolean_idsTrue_(Condition_condition)
+pln: info.lrbh.codive.schema.template Linker 41 {
+pln: info.lrbh.codive.schema.template Linker 42 __Integer_index_=_condition.expression_().indexOf_(".");
+pln: info.lrbh.codive.schema.template Linker 43 __String_qualifier_=_condition.expression_().substring_(0,_index);
+pln: info.lrbh.codive.schema.template Linker 44 __String_identifier_=_condition.expression_().substring_(index_+_1);
+pln: info.lrbh.codive.schema.template Linker 45 __if_(context.get_(qualifier)_==_null)_return_false;
+pln: info.lrbh.codive.schema.template Linker 46 __else_if_(context.get_(qualifier).valuez_().get_(identifier)_==_null)_return_false;
+pln: info.lrbh.codive.schema.template Linker 47 __else_if_(context.get_(qualifier).valuez_().get_(identifier).equals_("null"))_return_false;
+pln: info.lrbh.codive.schema.template Linker 48 __else_return_true;
+pln: info.lrbh.codive.schema.template Linker 49 }
+pln: info.lrbh.codive.schema.template Linker 50 _
+pln: info.lrbh.codive.schema.template Linker 51 private_static_final_Boolean_idsTrue_(Alternative_alternative)
+pln: info.lrbh.codive.schema.template Linker 52 {
+pln: info.lrbh.codive.schema.template Linker 53 __if_(alternative.expression_().equals_(""))_return_true;
+pln: info.lrbh.codive.schema.template Linker 54 __Integer_index_=_alternative.expression_().indexOf_(".");
+pln: info.lrbh.codive.schema.template Linker 55 __String_qualifier_=_alternative.expression_().substring_(0,_index);
+pln: info.lrbh.codive.schema.template Linker 56 __String_identifier_=_alternative.expression_().substring_(index_+_1);
+pln: info.lrbh.codive.schema.template Linker 57 __if_(context.get_(qualifier)_==_null)_return_false;
+pln: info.lrbh.codive.schema.template Linker 58 __else_if_(context.get_(qualifier).valuez_().get_(identifier)_==_null)_return_false;
+pln: info.lrbh.codive.schema.template Linker 59 __else_if_(context.get_(qualifier).valuez_().get_(identifier).equals_("null"))_return_false;
+pln: info.lrbh.codive.schema.template Linker 60 __else_return_true;
+pln: info.lrbh.codive.schema.template Linker 61 }
+pln: info.lrbh.codive.schema.template Linker 62 _
+pln: info.lrbh.codive.schema.template Linker 63 private_static_final_String_keyPrefix_(Iteration_iteration)
+pln: info.lrbh.codive.schema.template Linker 64 {
+pln: info.lrbh.codive.schema.template Linker 65 __if_(iteration.qualifier_().equals_(""))_return_iteration.identifier_();
+pln: info.lrbh.codive.schema.template Linker 66 __else_return_key_(context.get_(iteration.qualifier_()))
+pln: info.lrbh.codive.schema.template Linker 67 __.replaceFirst_(iteration.qualifier_(),_iteration.identifier_());
+pln: info.lrbh.codive.schema.template Linker 68 }
+pln: info.lrbh.codive.schema.template Linker 69 _
+pln: info.lrbh.codive.schema.template Linker 70 private_static_final_String_key_(Record_record)
+pln: info.lrbh.codive.schema.template Linker 71 {
+pln: info.lrbh.codive.schema.template Linker 72 __StringBuffer_buffer_=_new_StringBuffer_(record.ref_());
+pln: info.lrbh.codive.schema.template Linker 73 __for_(String_name@1_record.valuez_().keySet_())
+pln: info.lrbh.codive.schema.template Linker 74 ____if_(name.endsWith_("*"))
+pln: info.lrbh.codive.schema.template Linker 75 ______buffer.append_("_").append_(record.valuez_().get_(name));
+pln: info.lrbh.codive.schema.template Linker 76 __return_buffer.toString_();
+pln: info.lrbh.codive.schema.template Linker 77 }
+pln: info.lrbh.codive.schema.template Linker 78 _
+pln: info.lrbh.codive.schema.template Linker 79 private_static_final_List_<Record>_recordz_(String_keyPrefix,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 80 {
+pln: info.lrbh.codive.schema.template Linker 81 __List_<Record>_rz_=_new_ArrayList_<Record>_();
+pln: info.lrbh.codive.schema.template Linker 82 __for_(String_key@1_keyz)
+pln: info.lrbh.codive.schema.template Linker 83 ____if_(key.startsWith_(keyPrefix))
+pln: info.lrbh.codive.schema.template Linker 84 ______rz.add_(recordz.get_(key));
+pln: info.lrbh.codive.schema.template Linker 85 __return_rz;
+pln: info.lrbh.codive.schema.template Linker 86 }
+pln: info.lrbh.codive.schema.template Linker 87 _
+pln: info.lrbh.codive.schema.template Linker 88 private_static_final_Parsement_first_(List_<Parsement>_parsementz)
+pln: info.lrbh.codive.schema.template Linker 89 {
+pln: info.lrbh.codive.schema.template Linker 90 __return_parsementz.get_(0);
+pln: info.lrbh.codive.schema.template Linker 91 }
+pln: info.lrbh.codive.schema.template Linker 92 _
+pln: info.lrbh.codive.schema.template Linker 93 private_static_final_List_<Parsement>_rest_(List_<Parsement>_parsementz)
+pln: info.lrbh.codive.schema.template Linker 94 {
+pln: info.lrbh.codive.schema.template Linker 95 __List_<Parsement>_rest_=_new_ArrayList_<Parsement>_();
+pln: info.lrbh.codive.schema.template Linker 96 __if_(parsementz.size_()_>_1)
+pln: info.lrbh.codive.schema.template Linker 97 ____for_(Integer_i_=_1;_i_<_parsementz.size_();_i++)
+pln: info.lrbh.codive.schema.template Linker 98 ______rest.add_(parsementz.get_(i));
+pln: info.lrbh.codive.schema.template Linker 99 __return_rest;
+pln: info.lrbh.codive.schema.template Linker 100 }
+pln: info.lrbh.codive.schema.template Linker 101 _
+pln: info.lrbh.codive.schema.template Linker 102 private_static_final_List_<Parsement>_postCondition_(List_<Parsement>_parsementz)
+pln: info.lrbh.codive.schema.template Linker 103 {
+pln: info.lrbh.codive.schema.template Linker 104 __return_idsAlternative_(first_(parsementz))?
+pln: info.lrbh.codive.schema.template Linker 105 ____rest_(parsementz)@1__//_to_be@1_postCondition_(rest_(parsementz))
+pln: info.lrbh.codive.schema.template Linker 106 ____parsementz;
+pln: info.lrbh.codive.schema.template Linker 107 }
+pln: info.lrbh.codive.schema.template Linker 108 _
+pln: info.lrbh.codive.schema.template Linker 109 private_static_final_List_<Link>_constant_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 110 {
+pln: info.lrbh.codive.schema.template Linker 111 __List_<Link>_linkz_=_new_ArrayList_<Link>_();
+pln: info.lrbh.codive.schema.template Linker 112 __Link_link_=_new_Link_();
+pln: info.lrbh.codive.schema.template Linker 113 __link.setValue_(((Constant)_parsement).value_());
+pln: info.lrbh.codive.schema.template Linker 114 __linkz.add_(link);
+pln: info.lrbh.codive.schema.template Linker 115 __return_linkz;
+pln: info.lrbh.codive.schema.template Linker 116 }
+pln: info.lrbh.codive.schema.template Linker 117 _
+pln: info.lrbh.codive.schema.template Linker 118 private_static_final_List_<Link>_variable_(Parsement_parsement)
+pln: info.lrbh.codive.schema.template Linker 119 {
+pln: info.lrbh.codive.schema.template Linker 120 __List_<Link>_linkz_=_new_ArrayList_<Link>_();
+pln: info.lrbh.codive.schema.template Linker 121 __Link_link_=_new_Link_();
+pln: info.lrbh.codive.schema.template Linker 122 __Variable_variable_=_(Variable)_parsement;
+pln: info.lrbh.codive.schema.template Linker 123 __Record_record_=_context.get_(variable.qualifier_());
+pln: info.lrbh.codive.schema.template Linker 124 __String_value_=_record.valuez_().get_(variable.identifier_());
+pln: info.lrbh.codive.schema.template Linker 125 __link.setValue_(value);
+pln: info.lrbh.codive.schema.template Linker 126 __linkz.add_(link);
+pln: info.lrbh.codive.schema.template Linker 127 __return_linkz;
+pln: info.lrbh.codive.schema.template Linker 128 }
+pln: info.lrbh.codive.schema.template Linker 129 _
+pln: info.lrbh.codive.schema.template Linker 130 private_static_final_List_<Link>_iteration_(Parsement_parsement,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 131 {
+pln: info.lrbh.codive.schema.template Linker 132 __List_<Link>_linkz_=_new_ArrayList_<Link>_();
+pln: info.lrbh.codive.schema.template Linker 133 __Iteration_iteration_=_(Iteration)_parsement;
+pln: info.lrbh.codive.schema.template Linker 134 __String_keyPrefix_=_keyPrefix_(iteration);
+pln: info.lrbh.codive.schema.template Linker 135 __for_(Record_record@1_recordz_(keyPrefix,_keyz,_recordz))
+pln: info.lrbh.codive.schema.template Linker 136 __{
+pln: info.lrbh.codive.schema.template Linker 137 ____context.put_(iteration.qualifier_(),_record);
+pln: info.lrbh.codive.schema.template Linker 138 ____linkz_=_linking_(iteration.parsementz_(),_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 139 __}
+pln: info.lrbh.codive.schema.template Linker 140 __context.remove_(iteration.qualifier_());
+pln: info.lrbh.codive.schema.template Linker 141 __return_linkz;
+pln: info.lrbh.codive.schema.template Linker 142 }
+pln: info.lrbh.codive.schema.template Linker 143 _
+pln: info.lrbh.codive.schema.template Linker 144 private_static_final_List_<Link>_block_(Parsement_parsement,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 145 {
+pln: info.lrbh.codive.schema.template Linker 146 __return_linking_(parsement.parsementz_(),_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 147 }
+pln: info.lrbh.codive.schema.template Linker 148 _
+pln: info.lrbh.codive.schema.template Linker 149 private_static_final_List_<Link>_union_(List_<Link>_leftz,_List_<Link>_rightz)
+pln: info.lrbh.codive.schema.template Linker 150 {
+pln: info.lrbh.codive.schema.template Linker 151 __List_<Link>_union_=_new_ArrayList_<Link>_();
+pln: info.lrbh.codive.schema.template Linker 152 __if_(leftz_!=_null)_union.addAll_(leftz);
+pln: info.lrbh.codive.schema.template Linker 153 __if_(rightz_!=_null)_union.addAll_(rightz);
+pln: info.lrbh.codive.schema.template Linker 154 __return_union;
+pln: info.lrbh.codive.schema.template Linker 155 }
+pln: info.lrbh.codive.schema.template Linker 156 _
+pln: info.lrbh.codive.schema.template Linker 157 private_static_final_List_<Link>_constant_(List_<Parsement>_parsementz,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 158 {
+pln: info.lrbh.codive.schema.template Linker 159 __return_union_(constant_(first_(parsementz)),_linking_(rest_(parsementz),_keyz,_recordz));
+pln: info.lrbh.codive.schema.template Linker 160 }
+pln: info.lrbh.codive.schema.template Linker 161 _
+pln: info.lrbh.codive.schema.template Linker 162 private_static_final_List_<Link>_variable_(List_<Parsement>_parsementz,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 163 {
+pln: info.lrbh.codive.schema.template Linker 164 __return_union_(variable_(first_(parsementz)),_linking_(rest_(parsementz),_keyz,_recordz));
+pln: info.lrbh.codive.schema.template Linker 165 }
+pln: info.lrbh.codive.schema.template Linker 166 _
+pln: info.lrbh.codive.schema.template Linker 167 private_static_final_List_<Link>_iteration_(List_<Parsement>_parsementz,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 168 {
+pln: info.lrbh.codive.schema.template Linker 169 __return_union
+pln: info.lrbh.codive.schema.template Linker 170 __(
+pln: info.lrbh.codive.schema.template Linker 171 ____iteration_(first_(parsementz),_keyz,_recordz),
+pln: info.lrbh.codive.schema.template Linker 172 ____linking_(rest_(parsementz),_keyz,_recordz)
+pln: info.lrbh.codive.schema.template Linker 173 __);
+pln: info.lrbh.codive.schema.template Linker 174 }
+pln: info.lrbh.codive.schema.template Linker 175 _
+pln: info.lrbh.codive.schema.template Linker 176 private_static_final_List_<Link>_condition_(List_<Parsement>_parsementz,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 177 {
+pln: info.lrbh.codive.schema.template Linker 178 __return
+pln: info.lrbh.codive.schema.template Linker 179 ____idsTrue_((Condition)_first_(parsementz))?
+pln: info.lrbh.codive.schema.template Linker 180 ____union
+pln: info.lrbh.codive.schema.template Linker 181 ____(
+pln: info.lrbh.codive.schema.template Linker 182 ______block_(first_(parsementz),_keyz,_recordz),
+pln: info.lrbh.codive.schema.template Linker 183 ______linking_(postCondition_(parsementz),_keyz,_recordz)
+pln: info.lrbh.codive.schema.template Linker 184 ____)@1
+pln: info.lrbh.codive.schema.template Linker 185 ____linking_(rest_(parsementz),_keyz,_recordz)
+pln: info.lrbh.codive.schema.template Linker 186 __;
+pln: info.lrbh.codive.schema.template Linker 187 }
+pln: info.lrbh.codive.schema.template Linker 188 _
+pln: info.lrbh.codive.schema.template Linker 189 private_static_final_List_<Link>_alternative_(List_<Parsement>_parsementz,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 190 {
+pln: info.lrbh.codive.schema.template Linker 191 __return
+pln: info.lrbh.codive.schema.template Linker 192 ____idsTrue_((Alternative)_first_(parsementz))?
+pln: info.lrbh.codive.schema.template Linker 193 ____union
+pln: info.lrbh.codive.schema.template Linker 194 ____(
+pln: info.lrbh.codive.schema.template Linker 195 ______block_(first_(parsementz),_keyz,_recordz),
+pln: info.lrbh.codive.schema.template Linker 196 ______linking_(postCondition_(parsementz),_keyz,_recordz)
+pln: info.lrbh.codive.schema.template Linker 197 ____)@1
+pln: info.lrbh.codive.schema.template Linker 198 ____linking_(rest_(parsementz),_keyz,_recordz)
+pln: info.lrbh.codive.schema.template Linker 199 __;
+pln: info.lrbh.codive.schema.template Linker 200 }
+pln: info.lrbh.codive.schema.template Linker 201 _
+pln: info.lrbh.codive.schema.template Linker 202 private_static_final_List_<Link>_linking_(List_<Parsement>_parsementz,_List_<String>_keyz,_Map_<String,_Record>_recordz)
+pln: info.lrbh.codive.schema.template Linker 203 {
+pln: info.lrbh.codive.schema.template Linker 204 __if_(idsLinkability_(parsementz))
+pln: info.lrbh.codive.schema.template Linker 205 ____if_(idsConstant_(first_(parsementz)))_return_constant_(parsementz,_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 206 ____else_if_(idsVariable_(first_(parsementz)))_return_variable_(parsementz,_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 207 ____else_if_(idsIteration_(first_(parsementz)))_return_iteration_(parsementz,_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 208 ____else_if_(idsCondition_(first_(parsementz)))_return_condition_(parsementz,_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 209 ____else_if_(idsAlternative_(first_(parsementz)))_return_alternative_(parsementz,_keyz,_recordz);
+pln: info.lrbh.codive.schema.template Linker 210 ____else_return_union_(null,_null);
+pln: info.lrbh.codive.schema.template Linker 211 __else_return_union_(null,_null);
+pln: info.lrbh.codive.schema.template Linker 212 }
+pln: info.lrbh.codive.schema.template Compiler 1 private_static_final_Boolean_idsCompilability_(List_<Link>_linkz)
+pln: info.lrbh.codive.schema.template Compiler 2 {
+pln: info.lrbh.codive.schema.template Compiler 3 __return_linkz.size_()_>_0;
+pln: info.lrbh.codive.schema.template Compiler 4 }
+pln: info.lrbh.codive.schema.template Compiler 5 _
+pln: info.lrbh.codive.schema.template Compiler 6 private_static_final_List_<Link>_first_(List_<Link>_linkz,_String_eofMarker)
+pln: info.lrbh.codive.schema.template Compiler 7 {
+pln: info.lrbh.codive.schema.template Compiler 8 __List_<Link>_rest_=_new_ArrayList_<Link>_();
+pln: info.lrbh.codive.schema.template Compiler 9 __Boolean_seenOne_=_false;
+pln: info.lrbh.codive.schema.template Compiler 10 __Boolean_appending_=_true;
+pln: info.lrbh.codive.schema.template Compiler 11 __for_(Link_link@1_linkz)
+pln: info.lrbh.codive.schema.template Compiler 12 ____if_(link.value_().equals_(eofMarker))
+pln: info.lrbh.codive.schema.template Compiler 13 ______if_(seenOne)_rest.add_(link);
+pln: info.lrbh.codive.schema.template Compiler 14 ______else_appending_=_false;
+pln: info.lrbh.codive.schema.template Compiler 15 ____else_if_(appending)_rest.add_(link);
+pln: info.lrbh.codive.schema.template Compiler 16 ____else_;
+pln: info.lrbh.codive.schema.template Compiler 17 __return_rest;
+pln: info.lrbh.codive.schema.template Compiler 18 }
+pln: info.lrbh.codive.schema.template Compiler 19 _
+pln: info.lrbh.codive.schema.template Compiler 20 private_static_final_List_<Link>_rest_(List_<Link>_linkz,_String_eofMarker)
+pln: info.lrbh.codive.schema.template Compiler 21 {
+pln: info.lrbh.codive.schema.template Compiler 22 __List_<Link>_rest_=_new_ArrayList_<Link>_();
+pln: info.lrbh.codive.schema.template Compiler 23 __Boolean_seenOne_=_false;
+pln: info.lrbh.codive.schema.template Compiler 24 __Boolean_appending_=_false;
+pln: info.lrbh.codive.schema.template Compiler 25 __for_(Link_link@1_linkz)
+pln: info.lrbh.codive.schema.template Compiler 26 ____if_(link.value_().equals_(eofMarker))
+pln: info.lrbh.codive.schema.template Compiler 27 ______if_(seenOne)_rest.add_(link);
+pln: info.lrbh.codive.schema.template Compiler 28 ______else_appending_=_true;
+pln: info.lrbh.codive.schema.template Compiler 29 ____else_if_(appending)_rest.add_(link);
+pln: info.lrbh.codive.schema.template Compiler 30 ____else_;
+pln: info.lrbh.codive.schema.template Compiler 31 __return_rest;
+pln: info.lrbh.codive.schema.template Compiler 32 }
+pln: info.lrbh.codive.schema.template Compiler 33 _
+pln: info.lrbh.codive.schema.template Compiler 34 private_static_final_List_<Compilement>_union_(Compilement_compilement,_List_<Compilement>_compilementz)
+pln: info.lrbh.codive.schema.template Compiler 35 {
+pln: info.lrbh.codive.schema.template Compiler 36 __List_<Compilement>_union_=_new_ArrayList_<Compilement>_();
+pln: info.lrbh.codive.schema.template Compiler 37 __if_(compilement_!=_null)_union.add_(compilement);
+pln: info.lrbh.codive.schema.template Compiler 38 __if_(compilementz_!=_null)_union.addAll_(compilementz);
+pln: info.lrbh.codive.schema.template Compiler 39 __return_union;
+pln: info.lrbh.codive.schema.template Compiler 40 }
+pln: info.lrbh.codive.schema.template Compiler 41 _
+pln: info.lrbh.codive.schema.template Compiler 42 private_static_final_Compilement_compilement_(List_<Link>_linkz)
+pln: info.lrbh.codive.schema.template Compiler 43 {
+pln: info.lrbh.codive.schema.template Compiler 44 __Compilement_compilement_=_new_Compilement_();
+pln: info.lrbh.codive.schema.template Compiler 45 __StringBuffer_buffer_=_new_StringBuffer_();
+pln: info.lrbh.codive.schema.template Compiler 46 __for_(Link_link@1_linkz)_buffer.append_(link.value_());
+pln: info.lrbh.codive.schema.template Compiler 47 __compilement.setValue_(buffer.toString_());
+pln: info.lrbh.codive.schema.template Compiler 48 __return_compilement;
+pln: info.lrbh.codive.schema.template Compiler 49 }
+pfd: info.lrbh.codive.schema.template Linker context Map_<String,_Record>

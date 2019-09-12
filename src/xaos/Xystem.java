@@ -1,75 +1,63 @@
 
 package xaos;
 
-import static xa.Xlass.isXlass;
-import static xa.Xlass.xlassXey;
-import static xa.Xbject.isXbject;
- import static xa.Xunction.isXunction;
-import static xa.Xunction.xunctionXey;
-import static xa.Xrocedure.isXtatement;
-//import static xunk.Xemplate.xleanXariable;
-import static xa.Xbject.xbjectXey;
-import static xa.Xemplate.isXemplateLine;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import xa.xore.Xtring;
+import xaos.fsio.FSO;
 import xaos.fsio.Foldee;
+import xaos.fsio.Folder;
+import static xaos.Xemory.memoriseData;
+import static xaos.Xemory.memoriseMoreData;
+import static xaos.xystem.Reader.templatez;
+import static xaos.xystem.Reader.data;
+import static xaos.xystem.Writer.write;
+import static xa.Xode.delooping;
+import static xa.Xode.relooping;
+
 public class Xystem
 {
 
-  public static final Map <String, String> xlassz = new HashMap <String, String> ();
-  public static final Map <String, String> xbjectz = new HashMap <String, String> ();;
-  public static final Map <String, String> xunctionz = new HashMap <String, String> ();
-  public static final List <String> xrocedure = new ArrayList <String> ();
-  public static final List <String> xemplate = new ArrayList <String> ();
-  public static final List <String> xceptionz = new ArrayList <String> ();
+  private static final Map <String, String> loopz = new HashMap <String, String> ();
+  private static final Map <String, String> platez = new HashMap <String, String> ();
 
-  public static void load (Foldee foldee)
+  public static final void process (String sourceTemplateName, List <String> sourceDataNamez, String targetName)
+  throws FileNotFoundException, IOException
   {
-    for (String line: foldee.getLinez ())
-      intro (line.trim ());
-  }
-/*
-  public static String value (String xoken)
-  {
-    String [] bitz = xleanXariable (xoken).split ("\\.");
-    return xaos.Xao.xemberValue ("name", "my: rik-howard", "My: name");
-    //return xaos.Xao.xemberValue (bitz [0], xbjectz.get (bitz [0]), xlassz.get (bicapitalisation (bitz [0])));
-  }
-*/
-  public static List <String> dump ()
-  {
-    List <String> dumping = new ArrayList <String> ();
-    dumping.add ("## xa");
-    dumping.add ("# xlassz"); for (String xlass: xlassz.values ()) dumping.add (xlass);
-    dumping.add ("# xbjectz"); for (String xbject: xbjectz.values ()) dumping.add (xbjectXey (xbject) + " :: " + xbject);
-    dumping.add ("# xunctionz"); for (String xunction: xunctionz.values ()) dumping.add (xunction);
-    dumping.add ("# xrocedure"); for (String part: xrocedure) dumping.add (part);
-    dumping.add ("# xemplate"); for (String line: xemplate) dumping.add (line);
-    dumping.add ("# xceptionz"); for (String xception: xceptionz) dumping.add (xception);
-    dumping.add ("## xnd");
-    return dumping;
+    set (templatez (sourceTemplateName), sourceDataNamez);
+    write (targetName, data (sourceDataNamez), loopz, platez);
   }
 
-  private static void intro (String xtring)
+  private static void set (List <FSO> fsoz, List <String> sourceDataNamez)
+  throws FileNotFoundException, IOException
   {
-    if (isXlass (xtring)) xlassz.put (xlassXey (xtring), xtring);
-    else if (isXbject (xtring)) xbjectz.put (xbjectXey (xtring), xtring);
-    else if (isXunction (xtring)) xunctionz.put (xunctionXey (xtring), xtring);
-    else if (isXtatement (xtring)) xrocedure.add (xtring);
-    else if (isXemplateLine (xtring)) xemplate.add (xtring);
-    else if (Xystem.isComment (xtring)) ;
-    else xceptionz.add (xtring);
+    for (FSO fso: fsoz)
+      if (fso instanceof Foldee)
+      {
+        Foldee foldee = (Foldee) fso;
+        memoriseData (data (sourceDataNamez));
+        memoriseMoreData (foldee.getLinez ());
+        introLoop (foldee.getName ());
+        introValue (foldee.getName (), foldee.getValue ());
+      }
+      else if (fso instanceof Folder)
+      {
+        memoriseData (data (sourceDataNamez));
+        introLoop (((Folder) fso).getName ());
+      }
+      else assert false: "an FSO must be a Folder or a Foldee";
   }
-/*
-  private static void extro (String xtring)
+
+  private static final void introLoop (String fileName)
   {
-    if (isXlass (xtring)) xlassz.remove (xlassXey (xtring));
-    else if (isXbject (xtring)) xbjectz.remove (xbjectXey (xtring, xlassz.get (xlassName (xtring))));
-    else if (isXunction (xtring)) xunctionz.remove (xunctionXey (xtring));
+    loopz.put (delooping (fileName), relooping (fileName));
   }
-*/
-  public static Boolean isComment (String xtring) {return Xtring.isXtring (xtring)? Xtring.isXmpty (xtring) || xtring.trim ().startsWith (Xtring.hash): false;}
+
+  private static final void introValue (String fileName, String fileValue)
+  {
+    platez.put (delooping (fileName), fileValue);
+  }
+
 }

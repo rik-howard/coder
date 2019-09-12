@@ -1,0 +1,25 @@
+
+# xymbol
+@eofMarker: <eof>
+@opener: ${
+@closer: }
+@clausal: :
+
+# xelationz
+Class: name*
+
+# xecordz
+class: Alpha
+class: Beta
+
+# xunctionz
+
+# xrocedure
+
+# xemplate
+.
+.|
+.| public class ${c.name}
+.| {
+.| }
+.

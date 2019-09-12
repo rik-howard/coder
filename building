@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function clean ()
+{
+  rm -r tmp > /dev/null
+}
+
+function undeploy ()
+{
+  ``
+}
+
+function compile ()
+{
+  mkdir tmp
+  javac -sourcepath src -d tmp src/xaos/Xesser.java
+  javac -cp tmp -sourcepath tst -d tmp tst/xa/Tester.java
+  javac -cp tmp -sourcepath usr -d tmp usr/xaos/XesserUser.java
+}
+
+function deploy ()
+{
+  ``
+}
+
+function tast ()
+{
+  java -cp tmp xa.Tester
+}
+
+function redeploy ()
+{
+  cp etc/property tmp
+}
+
+function docu ()
+{
+  java -cp tmp xaos.XesserUser
+}

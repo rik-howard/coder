@@ -1,10 +1,10 @@
 
 package xa.xemplate;
 
+import static xaos.Xemory.opener;
+import static xaos.Xemory.closer;
 import static xa.xore.Xtring.space;
 import static xa.xore.Xtring.tip;
-import static xa.xore.Xtring.topHedge;
-import static xa.xore.Xtring.bomHedge;
 import static xa.xore.Xtring.pre;
 import static xa.xore.Xtring.post;
 import static xa.xore.Xtring.between;
@@ -18,13 +18,14 @@ public class Xinker
 
   public static final List <String> xinking (List <String> xinkeez)
   {
+    //System.out.println (xinkeez);
     List <String> xinking = new ArrayList <String> ();
     for (String xinkee: xinkeez)
-      if (xinkee.trim ().startsWith (topHedge))
-        if (isXath (between (pre (xinkee, space), topHedge, bomHedge), tip))
-          xinking.add (xemberValue (post (between (pre (xinkee, space), topHedge, bomHedge), tip), post (xinkee, space)));
-        else if (xinkee.trim ().endsWith ("use")) xinking.add (between (xinkee, topHedge, bomHedge));
-        else ;//System.out.println (xinkee);
+      if (xinkee.trim ().startsWith (opener))
+        if (isXath (between (pre (xinkee, space), opener, closer), tip))
+          xinking.add (xemberValue (post (between (pre (xinkee, space), opener, closer), tip), post (xinkee, space)));
+        else if (xinkee.trim ().endsWith ("use")) xinking.add (between (xinkee, opener, closer));
+        else ;
       else xinking.add (xinkee);
     return xinking;
   }

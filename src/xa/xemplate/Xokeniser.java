@@ -1,12 +1,12 @@
 
 package xa.xemplate;
 
+import static xaos.Xemory.opener;
+import static xaos.Xemory.closer;
+import static xaos.Xemory.clausal;
 import static xa.xore.Xtring.xmpty;
 import static xa.xore.Xtring.end;
 import static xa.xore.Xtring.tip;
-import static xa.xore.Xtring.neck;
-import static xa.xore.Xtring.topHedge;
-import static xa.xore.Xtring.bomHedge;
 import static xa.xore.Xoken.isXath;
 import static xa.xore.Xtring.has;
 import static xa.xore.Xtring.pre;
@@ -16,36 +16,36 @@ import static xa.xore.Xtring.joining;
 import static xa.xore.Xord.isXord;
 import java.util.ArrayList;
 import java.util.List;
-import xa.xore.Xtring;
 
 public class Xokeniser
 {
 
-  private static final List <String> tokenz = new ArrayList <String> ();
+  private static List <String> tokenz;
 
   public static List <String> xokenisation (List <String> xleanment)
   {
+    tokenz = new ArrayList <String> ();
     String string = joining (xleanment, end);
     // assert Decommer.findsDecommic (string);
     while (string.length () > 0)
       if (hasVariableBeginning (string)) string = constant (string);
       else if (hasVariable (string)) string = variable (string);
       else string = rest (string);
-    return Xokeniser.tokenz;
+    return tokenz;
   }
 
   private static String constant (String string)
   {
-    String variable = string.substring (1, string.indexOf (bomHedge));
-    String rest = string.substring (string.indexOf (bomHedge) + 1);
-    Xokeniser.tokenz.add (new StringBuffer (topHedge).append (variable).append (bomHedge).toString ());
+    String variable = string.substring (opener.length (), string.indexOf (closer));
+    String rest = string.substring (string.indexOf (closer) + 1);
+    Xokeniser.tokenz.add (new StringBuffer (opener).append (variable).append (closer).toString ());
     return rest;
   }
 
   private static String variable (String string)
   {
-    String constant = string.substring (0, string.indexOf (topHedge));
-    String rest = string.substring (string.indexOf (topHedge));
+    String constant = string.substring (0, string.indexOf (opener));
+    String rest = string.substring (string.indexOf (opener));
     Xokeniser.tokenz.add (constant);
     return rest;
   }
@@ -53,62 +53,64 @@ public class Xokeniser
   private static String rest (String string)
   {
     Xokeniser.tokenz.add (string);
-    return "";
+    return xmpty;
   }
 
   private static Boolean hasVariableBeginning (String string)
   {
-    return string.startsWith (topHedge);
+    return string.startsWith (opener);
   }
 
   private static Boolean hasVariable (String string)
   {
-    return string.indexOf (topHedge) > 0;
+    return string.indexOf (opener) > 0;
   }
 
   public static Boolean isXonstant (String xoken)
   {
-    return Xtring.isXtring (xoken)? !xoken.trim ().matches ("\\[.*\\]"): false;
+    assert xoken != null: "xoken is null";
+    //return Xtring.isXtring (xoken)? !xoken.trim ().matches ("\\[.*\\]"): false;
+    return ! (xoken.startsWith (opener) && xoken.endsWith (closer));
   }
 
   public static Boolean isXariable (String xoken)
   {
-    //System.out.println (between (xoken, topHedge, bomHedge)+isXath (between (xoken, topHedge, bomHedge), tip));
-    return has (xoken, topHedge, bomHedge)
-    && isXath (between (xoken, topHedge, bomHedge), tip);
+    return has (xoken, opener, closer)
+    && isXath (between (xoken, opener, closer), tip);
   }
 
   public static Boolean isXonditional (String xoken)
   {
-    return has (xoken, topHedge, bomHedge)
-    && has (between (xoken, topHedge, bomHedge), neck)
-    && isXath (post (between (xoken, topHedge, bomHedge), neck), tip);
+    return has (xoken, opener, closer)
+    && has (between (xoken, opener, closer), clausal)
+    && isXath (post (between (xoken, opener, closer), clausal), tip);
   }
 
   public static Boolean isAlternative (String xoken)
   {
-    return has (xoken, topHedge, bomHedge)
-    && between (xoken, topHedge, bomHedge).equals (neck);
+    //return has (xoken, opener, closer)
+    //&& between (xoken, opener, closer).equals (clausal);
+    return new StringBuffer ().append (opener).append (clausal).append (closer).toString ().equals (xoken);
   }
 
   public static Boolean isLooping (String xoken)
   {
-    return has (xoken, topHedge, bomHedge)
-    && has (between (xoken, topHedge, bomHedge), neck)
-    && isXord (pre (between (xoken, topHedge, bomHedge), neck))
-    && isXath (post (between (xoken, topHedge, bomHedge), neck), tip);
+    return has (xoken, opener, closer)
+    && has (between (xoken, opener, closer), clausal)
+    && isXord (pre (between (xoken, opener, closer), clausal))
+    && isXath (post (between (xoken, opener, closer), clausal), tip);
   }
 
   public static Boolean isMagicSeperator (String xoken)
   {
-    return has (xoken, topHedge, bomHedge)
-    && between (xoken, topHedge, bomHedge).length () > 0;
+    return has (xoken, opener, closer)
+    && between (xoken, opener, closer).length () > 0;
   }
 
   public static Boolean isEnding (String xoken)
   {
-    return has (xoken, topHedge, bomHedge)
-    && between (xoken, topHedge, bomHedge).equals (xmpty);
+    return has (xoken, opener, closer)
+    && between (xoken, opener, closer).equals (xmpty);
   }
 
   public static String firstXoken (List <String> xokenisation)
@@ -120,10 +122,13 @@ public class Xokeniser
 
   public static List <String> restXokenz (List <String> xokenisation)
   {
+    List <String> restXokenz = new ArrayList <String> ();
     if (xokenisation == null) return null;
-    else if (xokenisation.size () > 0) return xokenisation.subList (1, xokenisation.size ());
+    else if (xokenisation.size () > 0)
+      for (Integer i = 1; i < xokenisation.size (); i++)
+        restXokenz.add (xokenisation.get (i));
     else return null;
-    // else return new ArrayList <String> ();
+    return restXokenz;
   }
 
 }

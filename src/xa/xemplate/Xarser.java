@@ -1,9 +1,11 @@
 
 package xa.xemplate;
 
+import static xaos.Xemory.opener;
+import static xaos.Xemory.closer;
+import java.util.ArrayList;
+import java.util.List;
 import static xa.xore.Xtring.tip;
-import static xa.xore.Xtring.topHedge;
-import static xa.xore.Xtring.bomHedge;
 import static xa.xore.Xtring.has;
 import static xa.xore.Xtring.pre;
 import static xa.xore.Xtring.post;
@@ -27,24 +29,24 @@ import static xa.xemplate.Xokeniser.isXonstant;
 import static xa.xemplate.Xokeniser.restXokenz;
 import static xa.xore.Xord.camelBacking;
 import static xa.xore.Xord.singular;
-import static xaos.Xystem.xlassz;
-import static xaos.Xystem.xbjectz;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import static xaos.Xemory.xlassz;
+import static xaos.Xemory.xbjectz;
+import static xaos.Xemory.xbjectzKeyz;
+import static xaos.Xemory.xontext;
+import static xa.xore.Xtring.space;
+import static xa.xore.Xtring.xmpty;
 
 public class Xarser
 {
 
-  private static final Map <String, String> xontextXbjects = new HashMap <String, String> ();
-  private static final List <String> xarsing = new ArrayList <String> ();
+  private static List <String> xarsing;
 
   public static List <String> xarsing (List <String> xokenz)
   {
+    xarsing = new ArrayList <String> ();
     for (String xlass: xlassz.values ())
       if (isXtatic (xlass))  // works for now, maybe always
-        xontextXbjects.put (camelBacking (xlassName (xlass)), xbjectz.get (camelBacking (xlassName (xlass))));
+        xontext.put (camelBacking (xlassName (xlass)), xbjectz.get (camelBacking (xlassName (xlass))));
       else ;
     xarsing.clear ();
     xarse (xokenz, true);
@@ -53,14 +55,16 @@ public class Xarser
 
   private static void xarse (List <String> xokenz, Boolean listEnding)
   {
-    if (isXonstant (firstXoken (xokenz))) xarseXonstant (xokenz, listEnding);
-    else if (isXariable (firstXoken (xokenz))) xarseXariable (xokenz, listEnding);
-    else if (isLooping (firstXoken (xokenz))) xarseLooping (xokenz, listEnding);
-    else if (isXonditional (firstXoken (xokenz))) xarseXonditional (xokenz, listEnding);
-    else if (isAlternative (firstXoken (xokenz))) ;
-    else if (isEnding (firstXoken (xokenz))) ;
-    else if (isMagicSeperator (firstXoken (xokenz))) xarseMagicSeperator (xokenz, listEnding);
-    else ;//System.out.println (firstXoken (xokenz));
+    if (xokenz.size () > 0)
+      if (isXonstant (firstXoken (xokenz))) xarseXonstant (xokenz, listEnding);
+      else if (isXariable (firstXoken (xokenz))) xarseXariable (xokenz, listEnding);
+      else if (isLooping (firstXoken (xokenz))) xarseLooping (xokenz, listEnding);
+      else if (isXonditional (firstXoken (xokenz))) xarseXonditional (xokenz, listEnding);
+      else if (isAlternative (firstXoken (xokenz))) ;
+      else if (isEnding (firstXoken (xokenz))) ;
+      else if (isMagicSeperator (firstXoken (xokenz))) xarseMagicSeperator (xokenz, listEnding);
+      else ;
+    else ;
   }
 
   private static void xarseXonstant (List <String> xokenz, Boolean listEnding)
@@ -71,59 +75,56 @@ public class Xarser
 
   public static void xarseXariable (List <String> xokenz, Boolean listEnding)
   {
-    String xbjectXlassReference = pre (between (firstXoken (xokenz), topHedge, bomHedge), tip);
-    xarsing.add (firstXoken (xokenz) + " " + xontextXbjects.get (xbjectXlassReference));
+    String xbjectXlassReference = pre (between (firstXoken (xokenz), opener, closer), tip);
+    xarsing.add (firstXoken (xokenz) + space + xontext.get (xbjectXlassReference));
     xarse (restXokenz (xokenz), listEnding);
   }
 
   public static void xarseLooping (List <String> xokenz, Boolean lastItem)
   {
-    String instance = head (between (firstXoken (xokenz), topHedge, bomHedge));
-    String lister = singular (leaf (body (between (firstXoken (xokenz), topHedge, bomHedge)), tip));
+    String instance = head (between (firstXoken (xokenz), opener, closer));
+    String lister = singular (leaf (body (between (firstXoken (xokenz), opener, closer)), tip));
     String xbjectzXeyPrefix;
-    if (has (body (between (firstXoken (xokenz), topHedge, bomHedge)), tip))
+    if (has (body (between (firstXoken (xokenz), opener, closer)), tip))
     {
-      String qualifier = branch (body (between (firstXoken (xokenz), topHedge, bomHedge)), tip);
-      xbjectzXeyPrefix = xbjectXey (xontextXbjects.get (qualifier)).replaceFirst (qualifier, lister);      
+      String qualifier = branch (body (between (firstXoken (xokenz), opener, closer)), tip);
+      xbjectzXeyPrefix = xbjectXey (xontext.get (qualifier)).replaceFirst (qualifier, lister);
     }
     else xbjectzXeyPrefix = lister;
     Integer xount = 0;
-    //System.out.println (xbjectzXeyPrefix + "@" + xbjectzWithXeyPrefix (xbjectzXeyPrefix));
     for (String xbject: xbjectzWithXeyPrefix (xbjectzXeyPrefix))
     {
       Boolean newLastItem = xount >= xbjectzWithXeyPrefix (xbjectzXeyPrefix).size () - 1;
-      xontextXbjects.put (instance, xbject + " " + xount++);
+      xontext.put (instance, xbject + space + xount++);
       xarse (restXokenz (xokenz), newLastItem);
     }
-    xontextXbjects.remove (instance);
+    xontext.remove (instance);
     xarse (afterBlock (xokenz), lastItem);
   }
 
   public static void xarseMagicSeperator (List <String> xokenz, Boolean listEnding)
   {
-    xarsing.add (firstXoken (xokenz) + " " + (listEnding? "": "use"));
+    xarsing.add (firstXoken (xokenz) + space + (listEnding? xmpty: "use"));
     xarse (restXokenz (xokenz), listEnding);
   }
 
   public static void xarseXonditional (List <String> xokenz, Boolean listEnding)
   {
-    String xbjectReference = pre (body (between (firstXoken (xokenz), topHedge, bomHedge)), tip);
-    String xemberName = pre (post (between (firstXoken (xokenz), topHedge, bomHedge), tip), tip);
-    if (xontextXbjects.get (xbjectReference) == null
-    || xemberValue (xemberName, xontextXbjects.get (xbjectReference)).equals ("null"))
+    String xbjectReference = pre (body (between (firstXoken (xokenz), opener, closer)), tip);
+    String xemberName = pre (post (between (firstXoken (xokenz), opener, closer), tip), tip);
+    if (xontext.get (xbjectReference) == null
+    || xemberValue (xemberName, xontext.get (xbjectReference)).equals ("null"))
     {
       List <String> restXokenz = restXokenz (xokenz);
       while (! isAlternative (firstXoken (restXokenz)) && ! isEnding (firstXoken (restXokenz))) restXokenz = restXokenz (restXokenz);
       if (isAlternative (firstXoken (restXokenz))) xarse (restXokenz (restXokenz), listEnding);
     }
     else xarse (restXokenz (xokenz), listEnding);
-    //System.out.println ("@@@@@");
     xarse (afterBlock (xokenz), listEnding);
   }
 
   public static List <String> afterBlock (List <String> xokenz)
   {
-    //System.out.println (xokenz + "@@@");
     List <String> stack = new ArrayList <String> ();
     for (Integer i = 0; i < xokenz.size (); i++)
       if (isXonstant (xokenz.get (i))) ;
@@ -143,8 +144,8 @@ public class Xarser
   private static final List <String> xbjectzWithXeyPrefix (String prefix)
   {
     List <String> xbjectzW = new ArrayList <String> ();
-    for (String x: xbjectz.keySet ())
-      if (x.startsWith (prefix)) xbjectzW.add (xbjectz.get (x));
+    for (String x: xbjectzKeyz)
+      if (x.startsWith (prefix + space)) xbjectzW.add (xbjectz.get (x));
     return xbjectzW;
   }
 

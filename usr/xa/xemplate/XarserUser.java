@@ -2,8 +2,8 @@
 package xa.xemplate;
 
 import static xa.xemplate.Xarser.xarsing;
-import static xaos.Xystem.xbjectz;
-import static xaos.Xystem.xlassz;
+import static xaos.Xemory.xbjectz;
+import static xaos.Xemory.xlassz;
 
 public class XarserUser
 extends Xser

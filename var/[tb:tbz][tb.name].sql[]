@@ -1,4 +1,10 @@
 
+# xymbol
+@eofMarker: <eof>
+@opener: [
+@closer: ]
+@clausal: :
+
 # xelationz
 Tb: dbName* name* idLength type
 Fk: tb.dbName* tb.name* name* dbName length
@@ -33,7 +39,7 @@ pt: geo subcontinent 0 compass_id
 # xrocedure
 
 # xemplate
-.[tb:tbz]
+.
 .                | create table if not exists [tb.dbName].[tb.name]
 .                | (
 .                |   id natural ([tb.idLength]) unsigned zerofill not null auto_increment,
@@ -43,4 +49,4 @@ pt: geo subcontinent 0 compass_id
 .  [fk:tb.fkz]   |   foriegn key ([fk.name]_id) references [fk.dbName].[fk.name] (id),
 .  [][uk:tb.ukz] |   unique ([pt:uk.ptz][pt.name][, ][])[,]
 .  []            | ) type = [tb.type];
-.[]
+.

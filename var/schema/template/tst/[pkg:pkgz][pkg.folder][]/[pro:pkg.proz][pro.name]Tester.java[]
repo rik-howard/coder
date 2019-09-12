@@ -1,0 +1,30 @@
+
+# xemplate
+.                             |
+.                             | package [pkg.name];
+.                             |
+.                             | import testing.Factory;
+.                             | import testing.Tester;
+.[ipr:pro.iprz]               | import [ipr.ipe];
+.[]                           |
+.                             | public class [pro.name]Tester
+.                             | extends Tester
+.                             | {
+.                             |
+.                             |   public static void main (String @0 args)
+.                             |   {
+.[mtd:pro.mtdz]               |     test[mtd.posh] ();
+.[]                           |     burp ();
+.                             |   }
+.                             |
+.[mtd:pro.mtdz]               |   public static final void test[mtd.posh] ()
+.                             |   {
+.                             |     [mtd.dec] expected = Factory.[mtd.eg] ();
+.  [prm:mtd.prmz]             |     [prm.dec] [prm.name] = Factory.[prm.eg] ();
+.  []                         |     [mtd.dec] actual = [pro.name].[mtd.name] ([prm:mtd.prmz][prm.name][, ][]);
+.                             |     assert expected.equals (actual): "[pro.name]Tester.test[mtd.posh] (): not " + expected + " is " + actual;
+.                             |     burp ();
+.                             |   }
+.[]                           |
+.                             | }
+.                             |

@@ -1,3 +1,10 @@
+
+#
+@eofMarker: <eof>
+@opener: [
+@closer: ]
+@clausal: :
+
 #
 I: name
 Thou: name*
@@ -15,4 +22,4 @@ we: theNamed
 .         | My name is [i.name].
 .[t:thouz]| Thy name is [t.name].  Thou art countee [t.xount].
 .[]       | Is our name [:we.name.][we.name][:]The Unnamed[]?
-.         |
+.         | [t:thouz][t.xount][ and ][]
